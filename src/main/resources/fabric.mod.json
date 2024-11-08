@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "minecat",
+	"version": "${version}",
+	"name": "MineCat",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"6 computer science student at SUT"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/minecat/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"g4.comsci.minecat.MineCat"
+		],
+		"client": [
+			"g4.comsci.minecat.MineCatClient"
+		],
+		"fabric-datagen": [
+			"g4.comsci.minecat.MineCatDataGenerator"
+		]
+	},
+	"mixins": [
+		"minecat.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.9",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
