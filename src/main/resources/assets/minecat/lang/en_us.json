@@ -1,0 +1,12 @@
+{
+  "item.minecat.catfood": "Cat Food",
+  "item.minecat.cat_teaser": "Cat Teaser",
+
+  "block.minecat.litter_box": "Litter Box",
+  "block.minecat.purrium_ore": "Purrium Ore",
+  "block.minecat.deepslate_purrium_ore": "Deepslate Purrium Ore",
+  "block.minecat.nether_purrium_ore": "Nether Purrium Ore",
+  "block.minecat.end_purrium_ore": "End Stone Purrium Ore",
+
+  "itemgroup.minecat": "MineCat"
+}

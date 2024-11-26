@@ -1,5 +1,8 @@
 package g4.comsci.minecat;
 
+import g4.comsci.minecat.block.ModBlocks;
+import g4.comsci.minecat.item.ModItemGroups;
+import g4.comsci.minecat.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -11,6 +14,8 @@ public class MineCat implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		ModItems.registerModItems();
+		ModItemGroups.registerModItemGroups();
+		ModBlocks.registerModBlocks();
 	}
 }
