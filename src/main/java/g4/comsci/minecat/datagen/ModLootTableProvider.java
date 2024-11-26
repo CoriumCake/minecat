@@ -18,7 +18,7 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
-    protected ModLootTableProvider(FabricDataOutput dataOutput) {
+    public ModLootTableProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 
@@ -37,7 +37,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 drop,
                 (LootPoolEntry.Builder<?>)this.applyExplosionDecay(
                         drop,
-                        ItemEntry.builder(Items.RAW_COPPER)
+                        ItemEntry.builder(ModItems.CATFUEL)
                                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 5.0F)))
                                 .apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE))
                 )
