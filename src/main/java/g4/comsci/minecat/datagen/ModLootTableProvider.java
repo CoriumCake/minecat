@@ -20,6 +20,7 @@ public class ModLootTableProvider extends FabricModelProvider{
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LITTER_BOX);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LITTER_BOX);
     }
 
     @Override
