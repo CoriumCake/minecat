@@ -5,6 +5,7 @@ import g4.comsci.minecat.item.ModItemGroups;
 import g4.comsci.minecat.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,5 +18,7 @@ public class MineCat implements ModInitializer {
 		ModItems.registerModItems();
 		ModItemGroups.registerModItemGroups();
 		ModBlocks.registerModBlocks();
+
+		FuelRegistry.INSTANCE.add(ModItems.CATFUEL,200);
 	}
 }

@@ -16,11 +16,13 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.CATFOOD)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CATFOOD);
                         entries.add(ModItems.CAT_TEASER);
+                        entries.add(ModItems.CATFUEL);
                         entries.add(ModBlocks.LITTER_BOX);
                         entries.add(ModBlocks.PURRIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);
                         entries.add(ModBlocks.END_PURRIUM_ORE);
+
                     }).build());
     public static void registerModItemGroups(){
         MineCat.LOGGER.info("Registering Mod Item Groups for " + MineCat.MOD_ID);
