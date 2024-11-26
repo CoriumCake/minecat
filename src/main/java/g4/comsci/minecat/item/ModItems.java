@@ -17,6 +17,8 @@ public class ModItems {
 
     public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings()));
 
+    public static final Item CATFUEL = registerItem("catfuel", new Item(new FabricItemSettings()));
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);
     }
