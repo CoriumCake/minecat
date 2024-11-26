@@ -27,5 +27,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CATFOOD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATFUEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_TEASER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CAT_LOCATOR, Models.GENERATED);
     }
 }

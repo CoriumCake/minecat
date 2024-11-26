@@ -17,6 +17,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CATFOOD);
                         entries.add(ModItems.CAT_TEASER);
                         entries.add(ModItems.CATFUEL);
+                        entries.add(ModItems.CAT_LOCATOR);
                         entries.add(ModBlocks.LITTER_BOX);
                         entries.add(ModBlocks.PURRIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);

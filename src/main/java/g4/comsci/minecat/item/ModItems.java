@@ -1,6 +1,7 @@
 package g4.comsci.minecat.item;
 
 import g4.comsci.minecat.MineCat;
+import g4.comsci.minecat.item.custom.CatLocatorItem;
 import g4.comsci.minecat.item.custom.CatTeaserItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -18,6 +19,8 @@ public class ModItems {
     public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings()));
 
     public static final Item CATFUEL = registerItem("catfuel", new Item(new FabricItemSettings()));
+
+    public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);
