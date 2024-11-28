@@ -24,4 +24,17 @@ public class ModFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 400), 1.0f)
             .statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 400), 0.5f)
             .build();
+
+    public static final FoodComponent CAT_JELLY = new FoodComponent.Builder()
+            .hunger(5)
+            .saturationModifier(0.4f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 200), 1.0f) // กระโดดสูง
+            .build();
+
+    public static final FoodComponent CAT_SOUP = new FoodComponent.Builder()
+            .hunger(6)
+            .saturationModifier(0.8f)
+            .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 300), 1.0f) // ฟื้นฟูเลือด
+            .statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 300), 0.5f) // ต้านทานความเสียหาย (50%)
+            .build();
 }

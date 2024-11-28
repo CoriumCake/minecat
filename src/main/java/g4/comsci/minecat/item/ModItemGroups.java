@@ -26,6 +26,8 @@ public class ModItemGroups {
                         entries.add(ModItems.CROISSANTS);
                         entries.add(ModItems.MASHED_POTATOES);
                         entries.add(ModItems.COCOA_DRINK);
+                        entries.add(ModItems.CAT_JELLY);
+                        entries.add(ModItems.CAT_SOUP);
 
                     }).build());
     public static void registerModItemGroups(){

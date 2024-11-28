@@ -28,6 +28,10 @@ public class ModItems {
 
     public static final Item COCOA_DRINK = registerItem("cocoa_drink", new Item(new FabricItemSettings().food(ModFoodComponents.COCOA_DRINK)));
 
+    public static final Item CAT_JELLY = registerItem("cat_jelly", new Item(new Item.Settings().food(ModFoodComponents.CAT_JELLY)));
+
+    public static final Item CAT_SOUP = registerItem("cat_soup", new Item(new Item.Settings().food(ModFoodComponents.CAT_SOUP)));
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);
     }
