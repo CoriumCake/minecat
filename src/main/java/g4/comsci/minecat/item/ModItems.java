@@ -22,6 +22,12 @@ public class ModItems {
 
     public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings()));
 
+    public static final Item CROISSANTS = registerItem("croissants", new Item(new FabricItemSettings().food(ModFoodComponents.CROISSANTS)));
+
+    public static final Item MASHED_POTATOES = registerItem("mashed_potatoes", new Item(new FabricItemSettings().food(ModFoodComponents.MASHED_POTATOES)));
+
+    public static final Item COCOA_DRINK = registerItem("cocoa_drink", new Item(new FabricItemSettings().food(ModFoodComponents.COCOA_DRINK)));
+
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);
     }

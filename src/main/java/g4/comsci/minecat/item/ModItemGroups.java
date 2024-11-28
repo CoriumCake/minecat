@@ -23,6 +23,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);
                         entries.add(ModBlocks.END_PURRIUM_ORE);
+                        entries.add(ModItems.CROISSANTS);
+                        entries.add(ModItems.MASHED_POTATOES);
+                        entries.add(ModItems.COCOA_DRINK);
 
                     }).build());
     public static void registerModItemGroups(){
