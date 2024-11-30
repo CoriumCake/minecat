@@ -1,6 +1,5 @@
 package g4.comsci.minecat.item.custom;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -32,28 +31,29 @@ public class CatTeaserItem extends Item {
             // Get all nearby cats
             List<CatEntity> cats = world.getEntitiesByClass(CatEntity.class, box, cat -> true);
 
+            // Sort cats by distance to the player
+            cats.sort((cat1, cat2) -> {
+                double distance1 = cat1.squaredDistanceTo(user);
+                double distance2 = cat2.squaredDistanceTo(user);
+                return Double.compare(distance1, distance2);
+            });
+
             for (CatEntity cat : cats) {
-                // Calculate direction toward the player
+                // Custom logic for sorted cats dd
                 double dx = user.getX() - cat.getX();
                 double dz = user.getZ() - cat.getZ();
-                double dy = (user.getY() - cat.getY()) + 0.5; // Slightly raise to make the jump playful
-
-                // Add randomness for playful movement
+                double dy = (user.getY() - cat.getY()) + 0.5;
                 double randomness = 0.2 * (RANDOM.nextDouble() - 0.5);
 
-                // Normalize direction and add randomness
                 double distance = Math.sqrt(dx * dx + dz * dz);
                 dx = (dx / distance) + randomness;
                 dz = (dz / distance) + randomness;
 
-                // Set cat velocity for jumping
                 cat.addVelocity(dx * 0.4, dy * 0.4, dz * 0.4);
-                cat.velocityDirty = true; // Mark velocity as updated
+                cat.velocityDirty = true;
 
-                // Make the cat face the player
                 cat.lookAtEntity(user, 30.0F, 30.0F);
 
-                // Make the cat meow occasionally
                 if (RANDOM.nextInt(5) == 0) {
                     cat.playAmbientSound();
                 }
@@ -63,3 +63,4 @@ public class CatTeaserItem extends Item {
         return TypedActionResult.success(user.getStackInHand(hand), world.isClient);
     }
 }
+

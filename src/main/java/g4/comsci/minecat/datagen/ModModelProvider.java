@@ -19,14 +19,20 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_PURRIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LITTER_BOX);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.CATFOOD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATFUEL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CAT_TEASER, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_LOCATOR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.PURRIUM, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.PURRIUM_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PURRIUM_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PURRIUM_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PURRIUM_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PURRIUM_HOE, Models.HANDHELD);
     }
 }
