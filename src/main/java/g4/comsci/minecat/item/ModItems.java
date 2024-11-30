@@ -4,10 +4,7 @@ import g4.comsci.minecat.MineCat;
 import g4.comsci.minecat.item.custom.CatLocatorItem;
 import g4.comsci.minecat.item.custom.CatTeaserItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -16,9 +13,23 @@ public class ModItems {
 
     public static final Item CATFOOD = registerItem("catfood", new Item(new FabricItemSettings()));
 
-    public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings()));
+    public static final Item PURRIUM = registerItem("purrium", new Item(new FabricItemSettings()));
+
+    public static final Item PURRIUM_PICKAXE = registerItem("purrium_pickaxe",
+            new PickaxeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+    public static final Item PURRIUM_AXE = registerItem("purrium_axe",
+            new AxeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+    public static final Item PURRIUM_SHOVEL = registerItem("purrium_shovel",
+            new ShovelItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+    public static final Item PURRIUM_SWORD = registerItem("purrium_sword",
+            new SwordItem(ModToolMaterial.PURRIUM, 999, 50f, new FabricItemSettings()));
+    public static final Item PURRIUM_HOE = registerItem("purrium_hoe",
+            new HoeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+
+    public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item CATFUEL = registerItem("catfuel", new Item(new FabricItemSettings()));
+
 
     public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings()));
 
