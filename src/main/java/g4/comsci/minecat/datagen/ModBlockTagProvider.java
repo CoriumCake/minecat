@@ -22,10 +22,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.END_PURRIUM_ORE)
                 .add(ModBlocks.PURRIUM_ORE);
 
-
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocks.LITTER_BOX);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.END_PURRIUM_ORE);
+                .add(ModBlocks.END_PURRIUM_ORE)
+                .add(ModBlocks.LITTER_BOX);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.NETHER_PURRIUM_ORE)
                 .add(ModBlocks.END_PURRIUM_ORE);

@@ -1,16 +1,9 @@
 {
   "item.minecat.catfood": "Cat Food",
-
-  "item.minecat.purrium": "Purrium",
-  "item.minecat.purrium_pickaxe": "Purrium Pickaxe",
-  "item.minecat.purrium_axe": "Purrium Axe",
-  "item.minecat.purrium_shovel": "Purrium Shovel",
-  "item.minecat.purrium_sword": "Purrium Sword",
-  "item.minecat.purrium_hoe": "Purrium Hoe",
   "item.minecat.cat_teaser": "Cat Teaser",
   "item.minecat.catfuel": "Cat Fuel",
   "item.minecat.cat_locator": "Cat Locator",
-
+  "block.minecat.litter_box": "Litter Box",
   "block.minecat.purrium_ore": "Purrium Ore",
   "block.minecat.deepslate_purrium_ore": "Deepslate Purrium Ore",
   "block.minecat.nether_purrium_ore": "Nether Purrium Ore",
