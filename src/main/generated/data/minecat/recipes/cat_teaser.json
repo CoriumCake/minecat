@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "F": {
+      "item": "minecraft:salmon"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  S",
+    " ST",
+    "S F"
+  ],
+  "result": {
+    "item": "minecat:cat_teaser"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+// 1.20.1	2024-11-28T16:10:25.1986079	MineCat/Tags for minecraft:block
+64be7f74bf861a8be8d95861a05b499824e063d9 data\minecraft\tags\blocks\needs_iron_tool.json
+8722a472064ccaee4bc1ca5383bf554d8342617e data\minecraft\tags\blocks\needs_stone_tool.json
+673e63161750408b94b60f29fae8c8cca03f9989 data\minecraft\tags\blocks\needs_diamond_tool.json
+436c458e623e83eaaa78005d0e68947c29bf18b3 data\minecraft\tags\blocks\mineable\pickaxe.json
+cbf54eb020600f4e776ae048dd9df9fd663c1599 data\minecraft\tags\blocks\mineable\axe.json
