@@ -18,7 +18,14 @@ public class ModItemGroups {
                         entries.add(ModItems.CAT_TEASER);
                         entries.add(ModItems.CATFUEL);
                         entries.add(ModItems.CAT_LOCATOR);
-                        entries.add(ModBlocks.LITTER_BOX);
+
+                        entries.add(ModItems.PURRIUM);
+                        entries.add(ModItems.PURRIUM_PICKAXE);
+                        entries.add(ModItems.PURRIUM_AXE);
+                        entries.add(ModItems.PURRIUM_SHOVEL);
+                        entries.add(ModItems.PURRIUM_SWORD);
+                        entries.add(ModItems.PURRIUM_HOE);
+
                         entries.add(ModBlocks.PURRIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);

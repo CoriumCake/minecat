@@ -15,9 +15,6 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
 
-    public static final Block LITTER_BOX = registerBlock("litter_box",
-            new Block(FabricBlockSettings.copyOf(Blocks.STONE)));
-
     public static final Block PURRIUM_ORE = registerBlock("purrium_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.STONE).strength(2f), UniformIntProvider.create(2, 5)));
     public static final Block DEEPSLATE_PURRIUM_ORE = registerBlock("deepslate_purrium_ore",
