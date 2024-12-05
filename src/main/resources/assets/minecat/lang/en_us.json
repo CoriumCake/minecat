@@ -11,6 +11,12 @@
   "item.minecat.catfuel": "Cat Fuel",
   "item.minecat.cat_locator": "Cat Locator",
 
+  "item.minecat.croissants": "Croissants",
+  "item.minecat.mashed_potatoes": "Mashed Potatoes",
+  "item.minecat.cocoa_drink": "Cocoa Drink",
+  "item.minecat.cat_jelly": "Cat Jelly",
+  "item.minecat.cat_soup": "Cat Soup",
+
   "block.minecat.purrium_ore": "Purrium Ore",
   "block.minecat.deepslate_purrium_ore": "Deepslate Purrium Ore",
   "block.minecat.nether_purrium_ore": "Nether Purrium Ore",
