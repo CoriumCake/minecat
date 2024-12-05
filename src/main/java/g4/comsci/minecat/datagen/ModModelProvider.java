@@ -34,5 +34,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PURRIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PURRIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PURRIUM_HOE, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.CAT_JELLY, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CAT_SOUP, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COCOA_DRINK, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MASHED_POTATOES, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CROISSANTS, Models.HANDHELD);
     }
 }
