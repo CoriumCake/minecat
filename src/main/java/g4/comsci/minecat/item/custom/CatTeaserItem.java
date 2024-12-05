@@ -1,11 +1,14 @@
 package g4.comsci.minecat.item.custom;
 
+import g4.comsci.minecat.sound.ModSounds;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
@@ -22,6 +25,9 @@ public class CatTeaserItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
+            // Play sound
+            user.getWorld().playSound(null, user.getBlockPos(), ModSounds.CAT_TEASER_RCLICK, SoundCategory.BLOCKS, 1f, 1f);
+
             // Define a bounding box to find nearby cats
             Box box = new Box(
                     user.getX() - 10, user.getY() - 10, user.getZ() - 10,
@@ -39,23 +45,24 @@ public class CatTeaserItem extends Item {
             });
 
             for (CatEntity cat : cats) {
-                // Custom logic for sorted cats dd
+                // Custom logic for sorted cats
                 double dx = user.getX() - cat.getX();
                 double dz = user.getZ() - cat.getZ();
                 double dy = (user.getY() - cat.getY()) + 0.5;
-                double randomness = 0.2 * (RANDOM.nextDouble() - 0.5);
 
                 double distance = Math.sqrt(dx * dx + dz * dz);
-                dx = (dx / distance) + randomness;
-                dz = (dz / distance) + randomness;
+                if (distance > 0) {
+                    double randomness = 0.1 * (RANDOM.nextDouble() - 0.5);
+                    dx = (dx / distance) + randomness;
+                    dz = (dz / distance) + randomness;
 
-                cat.addVelocity(dx * 0.4, dy * 0.4, dz * 0.4);
-                cat.velocityDirty = true;
+                    cat.addVelocity(dx * 0.4, dy * 0.4, dz * 0.4);
+                    cat.velocityDirty = true;
+                    cat.lookAtEntity(user, 30.0F, 30.0F);
 
-                cat.lookAtEntity(user, 30.0F, 30.0F);
-
-                if (RANDOM.nextInt(5) == 0) {
-                    cat.playAmbientSound();
+                    if (RANDOM.nextInt(5) == 0) {
+                        cat.playAmbientSound();
+                    }
                 }
             }
         }
