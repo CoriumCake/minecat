@@ -3,6 +3,7 @@ package g4.comsci.minecat;
 import g4.comsci.minecat.block.ModBlocks;
 import g4.comsci.minecat.item.ModItemGroups;
 import g4.comsci.minecat.item.ModItems;
+import g4.comsci.minecat.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -18,6 +19,7 @@ public class MineCat implements ModInitializer {
 		ModItems.registerModItems();
 		ModItemGroups.registerModItemGroups();
 		ModBlocks.registerModBlocks();
+		ModSounds.registerSounds();
 
 		FuelRegistry.INSTANCE.add(ModItems.CATFUEL,200);
 	}
