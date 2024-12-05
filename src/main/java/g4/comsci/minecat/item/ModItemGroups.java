@@ -17,11 +17,24 @@ public class ModItemGroups {
                         entries.add(ModItems.CATFOOD);
                         entries.add(ModItems.CAT_TEASER);
                         entries.add(ModItems.CATFUEL);
-                        entries.add(ModBlocks.LITTER_BOX);
+                        entries.add(ModItems.CAT_LOCATOR);
+
+                        entries.add(ModItems.PURRIUM);
+                        entries.add(ModItems.PURRIUM_PICKAXE);
+                        entries.add(ModItems.PURRIUM_AXE);
+                        entries.add(ModItems.PURRIUM_SHOVEL);
+                        entries.add(ModItems.PURRIUM_SWORD);
+                        entries.add(ModItems.PURRIUM_HOE);
+
                         entries.add(ModBlocks.PURRIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);
                         entries.add(ModBlocks.END_PURRIUM_ORE);
+                        entries.add(ModItems.CROISSANTS);
+                        entries.add(ModItems.MASHED_POTATOES);
+                        entries.add(ModItems.COCOA_DRINK);
+                        entries.add(ModItems.CAT_JELLY);
+                        entries.add(ModItems.CAT_SOUP);
 
                     }).build());
     public static void registerModItemGroups(){
