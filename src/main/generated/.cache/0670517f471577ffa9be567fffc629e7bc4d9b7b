@@ -1,6 +1,5 @@
-// 1.20.1	2024-11-28T16:10:25.1940828	MineCat/Block Loot Tables
-45d5aa52bfcae72954da3729508bffca8c3c8bdf data\minecat\loot_tables\blocks\nether_purrium_ore.json
-fa94c9426922c8754a2db2d2915ba634b3f64c39 data\minecat\loot_tables\blocks\purrium_ore.json
-0dbcf45bbb2d653f6808b6a2e42d622035818b95 data\minecat\loot_tables\blocks\litter_box.json
-fc301d67604acd931cd05d4e8b620ef9e6037fad data\minecat\loot_tables\blocks\end_purrium_ore.json
-e9854a180168ab4b00fb109e7d8f29c63e6c21d9 data\minecat\loot_tables\blocks\deepslate_purrium_ore.json
+// 1.20.1	2024-12-05T23:52:22.4177502	MineCat/Block Loot Tables
+348eac6169ab90e29c58c1e54eb2bc54be9086cc data\minecat\loot_tables\blocks\nether_purrium_ore.json
+cedb1713a5d4303ac1b3c5e3314c2342c1ed896c data\minecat\loot_tables\blocks\purrium_ore.json
+51459471ed50834ed8cc0381706073f658630899 data\minecat\loot_tables\blocks\end_purrium_ore.json
+a422a244d1b6ff811e2f847604db7a3fde96ec4e data\minecat\loot_tables\blocks\deepslate_purrium_ore.json

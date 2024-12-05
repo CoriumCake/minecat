@@ -18,7 +18,7 @@ public class ModFoodComponents {
             .statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 100), 0.5f)
             .build();
 
-    public static final FoodComponent COCOA_DRINK = new FoodComponent.Builder()
+    public static final FoodComponent Green_Tea = new FoodComponent.Builder()
             .hunger(2)
             .saturationModifier(0.1f)
             .statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 400), 1.0f)

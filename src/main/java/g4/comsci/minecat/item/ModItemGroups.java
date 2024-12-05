@@ -32,7 +32,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.END_PURRIUM_ORE);
                         entries.add(ModItems.CROISSANTS);
                         entries.add(ModItems.MASHED_POTATOES);
-                        entries.add(ModItems.COCOA_DRINK);
+                        entries.add(ModItems.Green_Tea);
                         entries.add(ModItems.CAT_JELLY);
                         entries.add(ModItems.CAT_SOUP);
 
