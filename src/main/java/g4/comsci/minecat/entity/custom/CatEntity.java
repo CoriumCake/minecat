@@ -54,11 +54,12 @@ public class CatEntity extends AnimalEntity {
 
         this.goalSelector.add(1, new AnimalMateGoal(this,1.150));
         this.goalSelector.add(2, new TemptGoal(this,1.25D, Ingredient.ofItems(ModItems.PURRIUM), false));
+        this.goalSelector.add(2, new TemptGoal(this,1.25D, Ingredient.ofItems(ModItems.CAT_TEASER), false));
         this.goalSelector.add(3, new FollowParentGoal(this, 1.15D));
 
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
-        this.goalSelector.add(56, new LookAroundGoal(this));
+        this.goalSelector.add(6, new LookAroundGoal(this));
     }
 
     public static DefaultAttributeContainer.Builder createCatAttributes(){
@@ -72,7 +73,7 @@ public class CatEntity extends AnimalEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(Items.SALMON);
+        return stack.isOf(ModItems.CATFOOD);
     }
 
     @Override
