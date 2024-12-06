@@ -22,5 +22,7 @@
   "block.minecat.nether_purrium_ore": "Nether Purrium Ore",
   "block.minecat.end_purrium_ore": "End Stone Purrium Ore",
 
+  "item.minecat.cat1_spawn_egg": "CAT1 Spawn Egg",
+
   "itemgroup.minecat": "MineCat"
 }
