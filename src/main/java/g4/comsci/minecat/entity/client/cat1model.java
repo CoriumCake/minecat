@@ -1,7 +1,16 @@
-// Made with Blockbench 4.11.2
-// Exported for Minecraft version 1.17+ for Yarn
-// Paste this class into your mod and generate all required imports
-public class cat1model extends EntityModel<Entity> {
+package g4.comsci.minecat.entity.client;
+
+import g4.comsci.minecat.entity.animation.ModAnimations;
+import g4.comsci.minecat.entity.custom.CatEntity;
+import net.minecraft.client.model.*;
+import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+
+public class cat1model<T extends CatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart head;
 	private final ModelPart bone;
 	private final ModelPart Tophat;
@@ -55,8 +64,23 @@ public class cat1model extends EntityModel<Entity> {
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 	@Override
-	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(CatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(netHeadYaw, headPitch);
+
+		this.animateMovement(ModAnimations.WALK, limbSwing,limbSwingAmount, 2f, 2.5f);
+		this.updateAnimation(entity.idleAnimationState,ModAnimations.OK, ageInTicks, 1f);
 	}
+
+	private void setHeadAngles(float headYaw ,float headPitch){
+		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+		this.head.yaw = headYaw * 0.17453292F;
+		this.head.pitch = headPitch * 0.017453292F;
+	}
+
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		head.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
@@ -67,5 +91,10 @@ public class cat1model extends EntityModel<Entity> {
 		back_right_leg.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		tail.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 		tail2.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart getPart() {
+		return body;
 	}
 }
