@@ -30,11 +30,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CATFOOD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATFUEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_LOCATOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CROISSANTS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MASHED_POTATOES, Models.GENERATED);
-        itemModelGenerator.register(ModItems.Green_Tea, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CAT_JELLY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CAT_SOUP, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.PURRIUM, Models.GENERATED);
 
@@ -46,7 +41,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.CAT_JELLY, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CAT_SOUP, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.COCOA_DRINK, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.Green_Tea, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MASHED_POTATOES, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CROISSANTS, Models.HANDHELD);
 
