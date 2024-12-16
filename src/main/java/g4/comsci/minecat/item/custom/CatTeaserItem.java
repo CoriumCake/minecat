@@ -1,11 +1,15 @@
 package g4.comsci.minecat.item.custom;
 
+import g4.comsci.minecat.entity.custom.CatEntity;
 import g4.comsci.minecat.sound.ModSounds;
-import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.client.sound.Sound;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
@@ -25,8 +29,10 @@ public class CatTeaserItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-            // Play sound
-            user.getWorld().playSound(null, user.getBlockPos(), ModSounds.CAT_TEASER_RCLICK, SoundCategory.BLOCKS, 1f, 1f);
+            // Play random sound
+            SoundEvent[] sounds = {ModSounds.CAT_TEASER_RCLICK, SoundEvents.ENTITY_CAT_PURR, SoundEvents.ENTITY_CAT_AMBIENT};
+            SoundEvent randomSound = sounds[RANDOM.nextInt(sounds.length)];
+            user.getWorld().playSound(null, user.getBlockPos(), randomSound, SoundCategory.BLOCKS, 1f, 1f);
 
             // Define a bounding box to find nearby cats
             Box box = new Box(
@@ -35,7 +41,7 @@ public class CatTeaserItem extends Item {
             );
 
             // Get all nearby cats
-            List<CatEntity> cats = world.getEntitiesByClass(CatEntity.class, box, cat -> true);
+            List<g4.comsci.minecat.entity.custom.CatEntity> cats = world.getEntitiesByClass(g4.comsci.minecat.entity.custom.CatEntity.class, box, cat -> true);
 
             // Sort cats by distance to the player
             cats.sort((cat1, cat2) -> {
@@ -60,8 +66,17 @@ public class CatTeaserItem extends Item {
                     cat.velocityDirty = true;
                     cat.lookAtEntity(user, 30.0F, 30.0F);
 
+                    // Play random ambient sound for the cat occasionally
                     if (RANDOM.nextInt(5) == 0) {
                         cat.playAmbientSound();
+                    }
+
+                    // Add custom particles at the cat's position
+                    for (int i = 0; i < 5; i++) { // Spawn 5 particles
+                        double offsetX = RANDOM.nextGaussian() * 0.1;
+                        double offsetY = RANDOM.nextGaussian() * 0.1;
+                        double offsetZ = RANDOM.nextGaussian() * 0.1;
+                        world.addParticle(ParticleTypes.HEART, cat.getX(), cat.getY() + 1, cat.getZ(), offsetX, offsetY, offsetZ);
                     }
                 }
             }
@@ -70,4 +85,3 @@ public class CatTeaserItem extends Item {
         return TypedActionResult.success(user.getStackInHand(hand), world.isClient);
     }
 }
-

@@ -35,13 +35,17 @@ public class ModItems {
     public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings()));
 
     public static final Item CROISSANTS = registerItem("croissants", new Item(new FabricItemSettings().food(ModFoodComponents.CROISSANTS)));
+
     public static final Item MASHED_POTATOES = registerItem("mashed_potatoes", new Item(new FabricItemSettings().food(ModFoodComponents.MASHED_POTATOES)));
-    public static final Item COCOA_DRINK = registerItem("cocoa_drink", new Item(new FabricItemSettings().food(ModFoodComponents.COCOA_DRINK)));
+
+    public static final Item Green_Tea = registerItem("green_tea", new Item(new FabricItemSettings().food(ModFoodComponents.Green_Tea)));
+
     public static final Item CAT_JELLY = registerItem("cat_jelly", new Item(new Item.Settings().food(ModFoodComponents.CAT_JELLY)));
+
     public static final Item CAT_SOUP = registerItem("cat_soup", new Item(new Item.Settings().food(ModFoodComponents.CAT_SOUP)));
 
-    public static final Item CAT1_SPAWN_EGG = registerItem("cat1_spawn_egg", new SpawnEggItem(ModEntities.CAT1,0x86518, 0x3b260f, new FabricItemSettings()));
-
+    public static final Item CAT1_SPAWN_EGG = registerItem("cat1_spawn_egg",
+            new SpawnEggItem(ModEntities.CAT1, 0xa86518, 0x3b260f, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);
