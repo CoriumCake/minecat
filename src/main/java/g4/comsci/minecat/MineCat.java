@@ -30,6 +30,7 @@ public class MineCat implements ModInitializer {
 		//ClientPacketHandler.register();
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT1, CatEntity.createCatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT2, CatEntity.createCatAttributes());
+		FabricDefaultAttributeRegistry.register(ModEntities.CAT3, CatEntity.createCatAttributes());
 
 		FuelRegistry.INSTANCE.add(ModItems.CATFUEL,200);
 	}

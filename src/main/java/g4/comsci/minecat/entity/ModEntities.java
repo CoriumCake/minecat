@@ -22,7 +22,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat2"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, KoratCatEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)) // Size of the second cat
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
@@ -30,7 +30,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat3"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, OrangeCatEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)) // Size of the second cat
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
