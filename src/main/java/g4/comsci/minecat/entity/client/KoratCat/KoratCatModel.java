@@ -1,10 +1,13 @@
 package g4.comsci.minecat.entity.client.KoratCat;
 
+import g4.comsci.minecat.entity.animation.KoratCatAnimations;
+import g4.comsci.minecat.entity.animation.ModAnimations;
 import g4.comsci.minecat.entity.custom.KoratCatEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart korat;
@@ -42,7 +45,30 @@ public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityMod
 	}
 	@Override
 	public void setAngles(KoratCatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform); // Reset transforms
+		this.setHeadAngles(netHeadYaw, headPitch); // Update head angles
+
+		if (limbSwingAmount > 0.01f) {
+			// Apply walking animation
+			this.animateMovement(KoratCatAnimations.MODEL_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+			System.out.println("Applying walking animation: limbSwing=" + limbSwing + ", limbSwingAmount=" + limbSwingAmount);
+		} else {
+			// Apply idle animation
+			this.updateAnimation(entity.idleAnimationState, KoratCatAnimations.MODEL_IDLE, ageInTicks, 1f);
+			System.out.println("Applying idle animation: ageInTicks=" + ageInTicks);
+		}
 	}
+
+
+
+	private void setHeadAngles(float headYaw, float headPitch){
+		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+		this.head.yaw = headYaw * 0.017453292F;
+		this.head.pitch = headPitch * 0.017453292F;
+	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		korat.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);

@@ -36,6 +36,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CAT_JELLY);
                         entries.add(ModItems.CAT_SOUP);
                         entries.add(ModItems.CAT1_SPAWN_EGG);
+                        entries.add(ModItems.KORATCAT_SPAWN_EGG);
 
                     }).build());
     public static void registerModItemGroups(){
