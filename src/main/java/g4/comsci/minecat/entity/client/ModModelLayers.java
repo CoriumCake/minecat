@@ -13,4 +13,14 @@ public class ModModelLayers {
 
     public static final EntityModelLayer CAT3 =
             new EntityModelLayer(new Identifier(MineCat.MOD_ID, "cat3"), "main");
+
+    public static final EntityModelLayer CAT4 =
+            new EntityModelLayer(new Identifier(MineCat.MOD_ID, "cat4"), "main");
+
+    public static final EntityModelLayer CAT5 =
+            new EntityModelLayer(new Identifier(MineCat.MOD_ID, "cat5"), "main");
+
+    public static final EntityModelLayer CAT6 =
+            new EntityModelLayer(new Identifier(MineCat.MOD_ID, "cat6"), "main");
+
 }
