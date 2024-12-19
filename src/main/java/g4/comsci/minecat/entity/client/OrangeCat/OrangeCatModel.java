@@ -6,8 +6,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-
-public class OrangeCatModel <T extends OrangeCatEntity> extends SinglePartEntityModel<T> {
+public class OrangeCatModel<T extends OrangeCatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart OrangeCat;
 	private final ModelPart head;
 	private final ModelPart body;
@@ -53,14 +52,19 @@ public class OrangeCatModel <T extends OrangeCatEntity> extends SinglePartEntity
 		ModelPartData tail2 = OrangeCat.addChild("tail2", ModelPartBuilder.create().uv(4, 15).cuboid(-0.5F, 0.0F, 0.0F, 1.0F, 8.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -8.5F, 16.0F, 1.5708F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 32);
 	}
+
+
+
+
+
 	@Override
-	public void setAngles(OrangeCatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(OrangeCatEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+
 	}
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		OrangeCat.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
-
 	@Override
 	public ModelPart getPart() {
 		return OrangeCat;
