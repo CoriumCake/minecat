@@ -4,8 +4,6 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,14 +12,14 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.client.MinecraftClient;
+import java.util.stream.Collectors;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CatLocatorItem extends Item {
 
@@ -46,6 +44,7 @@ public class CatLocatorItem extends Item {
         private TextFieldWidget searchField;
         private String searchText = "";
         private boolean sortByDistance = false;
+        private List<ButtonWidget> catButtons = new ArrayList<>(); // Keep track of buttons
 
         public CatLocatorScreen(PlayerEntity player) {
             super(Text.literal("Cat Locator"));
@@ -100,19 +99,16 @@ public class CatLocatorItem extends Item {
             this.filteredCats = ownedCats.stream()
                     .filter(cat -> cat.getName().getString().toLowerCase().contains(searchText.toLowerCase()))
                     .sorted(sortByDistance
-                            ? Comparator.comparingDouble(cat -> cat.squaredDistanceTo(player))  // เปรียบเทียบระยะทาง
-                            : Comparator.comparing(cat -> cat.getName().getString(), String::compareToIgnoreCase))  // เปรียบเทียบชื่อแมว
-                    .collect(Collectors.toList());  // ใช้ collect แทน toList
-        }
+                            ? Comparator.comparingDouble(cat -> cat.squaredDistanceTo(player))  // Compare by distance
+                            : Comparator.comparing(cat -> cat.getName().getString(), String::compareToIgnoreCase))  // Compare by name
+                    .collect(Collectors.toList());
 
-        @Override
-        public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-            this.renderBackground(context);
-            super.render(context, mouseX, mouseY, delta);
-            this.searchField.render(context, mouseX, mouseY, delta);
+            // Remove old buttons before creating new ones
+            this.catButtons.forEach(button -> this.remove(button));  // Correct way to remove buttons
+            this.catButtons.clear();
 
             int startY = this.height / 2 - 50;
-            int lineHeight = 20;
+            int lineHeight = 25;  // Increase line height to avoid overlap
             int maxEntries = (this.height - startY - 10) / lineHeight;
 
             // Display filtered cat list
@@ -121,21 +117,23 @@ public class CatLocatorItem extends Item {
                 String name = cat.getName().getString();
                 double distance = Math.sqrt(player.squaredDistanceTo(cat));
                 String entry = name + " (Distance: " + Math.round(distance) + ")";
+
                 int x = this.width / 2 - 100;
                 int y = startY + (i * lineHeight);
 
                 // Add button for each cat to make it glow when clicked
-                this.addDrawableChild(ButtonWidget.builder(Text.literal(entry), button -> {
+                ButtonWidget catButton = ButtonWidget.builder(Text.literal(entry), button -> {
                     selectCat(cat);  // Select the cat and make it glow
-                }).dimensions(x, y, 200, 20).build());
+                }).dimensions(x, y, 200, 20).build();
+
+                this.addDrawableChild(catButton);
+                this.catButtons.add(catButton);  // Add the button to the list
             }
         }
 
-        // Method to make the cat glow when selected and show its position
+        // Method to make the cat glow when selected
         private void selectCat(CatEntity cat) {
-            // Make the cat glow using StatusEffect
-            cat.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, Integer.MAX_VALUE, 0, false, false));
-
+            cat.setGlowing(true);  // Make the cat glow
             Vec3d position = cat.getPos();
             player.sendMessage(Text.literal("Cat " + cat.getName().getString() + " is at: X=" +
                     Math.round(position.x) + ", Y=" + Math.round(position.y) + ", Z=" + Math.round(position.z)), false);
