@@ -51,11 +51,9 @@ public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityMod
 		if (limbSwingAmount > 0.01f) {
 			// Apply walking animation
 			this.animateMovement(KoratCatAnimations.MODEL_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-			System.out.println("Applying walking animation: limbSwing=" + limbSwing + ", limbSwingAmount=" + limbSwingAmount);
 		} else {
 			// Apply idle animation
 			this.updateAnimation(entity.idleAnimationState, KoratCatAnimations.MODEL_IDLE, ageInTicks, 1f);
-			System.out.println("Applying idle animation: ageInTicks=" + ageInTicks);
 		}
 	}
 

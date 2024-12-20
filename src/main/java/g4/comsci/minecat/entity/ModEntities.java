@@ -1,9 +1,7 @@
 package g4.comsci.minecat.entity;
 
 import g4.comsci.minecat.MineCat;
-import g4.comsci.minecat.entity.custom.CatEntity;
-import g4.comsci.minecat.entity.custom.KoratCatEntity;
-import g4.comsci.minecat.entity.custom.OrangeCatEntity;
+import g4.comsci.minecat.entity.custom.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -22,7 +20,7 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat2"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, KoratCatEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)) // Size of the second cat
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
@@ -30,7 +28,31 @@ public class ModEntities {
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat3"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, OrangeCatEntity::new)
-                    .dimensions(EntityDimensions.fixed(1f, 1f)) // Size of the second cat
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
+                    .build()
+    );
+
+    public static final EntityType<LuciferCatEntity> CAT4 = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(MineCat.MOD_ID, "cat4"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, LuciferCatEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
+                    .build()
+    );
+
+    public static final EntityType<HeavenlyCatEntity> CAT5 = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(MineCat.MOD_ID, "cat5"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HeavenlyCatEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
+                    .build()
+    );
+
+    public static final EntityType<ThailandCatEntity> CAT6 = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(MineCat.MOD_ID, "cat6"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ThailandCatEntity::new)
+                    .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 

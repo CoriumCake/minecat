@@ -37,21 +37,18 @@ public class KoratCatEntity extends AnimalEntity {
             // Stop the idle animation if the entity is moving
             if (this.idleAnimationState.isRunning()) {
                 this.idleAnimationState.stop();
-                System.out.println("Idle animation stopped because the cat is moving.");
             }
         } else {
             // Handle idle animation when the cat is stationary
             if (this.idleAnimationTimeout <= 0) {
                 this.idleAnimationTimeout = this.random.nextInt(40) + 80;
                 this.idleAnimationState.start(this.age);
-                System.out.println("Idle animation started at age: " + this.age);
             } else {
                 --this.idleAnimationTimeout;
             }
         }
 
         // Debug output for movement state
-        System.out.println("Is Moving: " + isMoving + ", Idle Timeout: " + this.idleAnimationTimeout);
     }
 
 
@@ -60,14 +57,12 @@ public class KoratCatEntity extends AnimalEntity {
     protected void updateLimbs(float posDelta) {
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
         this.limbAnimator.updateLimbs(f, 0.2f);
-        System.out.println("Updating limbs with posDelta: " + posDelta); // Log limb updates
     }
 
     @Override
     public void tick() {
         super.tick();
         if (this.getWorld().isClient()) {
-            System.out.println("Running client-side tick for KoratCatEntity"); // Log client tick
             setupAnimationStates();
         }
     }
@@ -81,18 +76,15 @@ public class KoratCatEntity extends AnimalEntity {
         this.goalSelector.add(4, new WanderAroundFarGoal(this, 1D));
         this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 4f));
         this.goalSelector.add(6, new LookAroundGoal(this));
-        System.out.println("Initialized goals for KoratCatEntity"); // Log goal initialization
     }
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         boolean isBreeding = stack.isOf(ModItems.CATFOOD);
-        System.out.println("Checking breeding item: " + stack + " -> " + isBreeding); // Log breeding item checks
         return isBreeding;
     }
 
     public static DefaultAttributeContainer.Builder createKoratCatAttributes() {
-        System.out.println("Creating KoratCat attributes"); // Log attribute creation
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)

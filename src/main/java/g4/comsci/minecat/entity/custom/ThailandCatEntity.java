@@ -2,8 +2,6 @@ package g4.comsci.minecat.entity.custom;
 
 import g4.comsci.minecat.entity.ModEntities;
 import g4.comsci.minecat.item.ModItems;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -21,9 +19,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class OrangeCatEntity extends AnimalEntity {
+public class ThailandCatEntity extends AnimalEntity {
 
-    public OrangeCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public ThailandCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -54,7 +52,7 @@ public class OrangeCatEntity extends AnimalEntity {
 
     @Override
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.CAT3.create(world);
+        return ModEntities.CAT6.create(world);
     }
 
     @Override

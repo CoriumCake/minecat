@@ -1,9 +1,7 @@
 package g4.comsci.minecat.entity.client.OrangeCat;
 
 import g4.comsci.minecat.MineCat;
-import g4.comsci.minecat.entity.client.KoratCat.KoratCatModel;
 import g4.comsci.minecat.entity.client.ModModelLayers;
-import g4.comsci.minecat.entity.custom.KoratCatEntity;
 import g4.comsci.minecat.entity.custom.OrangeCatEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
