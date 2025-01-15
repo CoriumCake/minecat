@@ -1,16 +1,14 @@
-package g4.comsci.minecat.entity.client;
+package g4.comsci.minecat.entity.client.blackCat;
 
 import g4.comsci.minecat.entity.animation.ModAnimations;
 import g4.comsci.minecat.entity.custom.CatEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 
-public class cat1model<T extends CatEntity> extends SinglePartEntityModel<T> {
+public class BlackCatModel<T extends CatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart head;
 	private final ModelPart bone;
 	private final ModelPart Tophat;
@@ -22,7 +20,7 @@ public class cat1model<T extends CatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart back_right_leg;
 	private final ModelPart tail;
 	private final ModelPart tail2;
-	public cat1model(ModelPart root) {
+	public BlackCatModel(ModelPart root) {
 		this.head = root.getChild("head");
 		this.bone = this.head.getChild("bone");
 		this.Tophat = this.head.getChild("Tophat");
@@ -65,20 +63,8 @@ public class cat1model<T extends CatEntity> extends SinglePartEntityModel<T> {
 	}
 	@Override
 	public void setAngles(CatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		this.setHeadAngles(netHeadYaw, headPitch);
-
-		this.animateMovement(ModAnimations.WALK, limbSwing,limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.idleAnimationState,ModAnimations.OK, ageInTicks, 1f);
 	}
 
-	private void setHeadAngles(float headYaw ,float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
-		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
-
-		this.head.yaw = headYaw * 0.17453292F;
-		this.head.pitch = headPitch * 0.017453292F;
-	}
 
 
 	@Override

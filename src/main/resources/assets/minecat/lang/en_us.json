@@ -24,6 +24,7 @@
 
   "item.minecat.cat1_spawn_egg": "CAT1 Spawn Egg",
   "item.minecat.korat_spawn_egg": "Korat Cat Spawn Egg",
+  "entity.minecat.cat1": "Black Cat",
 
   "itemgroup.minecat": "MineCat"
 }

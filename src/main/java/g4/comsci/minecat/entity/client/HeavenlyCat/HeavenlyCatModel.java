@@ -51,14 +51,6 @@ public class HeavenlyCatModel <T extends HeavenlyCatEntity> extends SinglePartEn
 		HeavenlyCat.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
-		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
-
-		this.head.yaw = headYaw * 0.017453292F;
-		this.head.pitch = headPitch * 0.017453292F;
-	}
-
 	@Override
 	public ModelPart getPart() {
 		return HeavenlyCat;
