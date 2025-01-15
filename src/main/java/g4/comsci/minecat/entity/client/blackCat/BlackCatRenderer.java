@@ -1,6 +1,7 @@
-package g4.comsci.minecat.entity.client;
+package g4.comsci.minecat.entity.client.blackCat;
 
 import g4.comsci.minecat.MineCat;
+import g4.comsci.minecat.entity.client.ModModelLayers;
 import g4.comsci.minecat.entity.custom.CatEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -8,11 +9,11 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class CatRenderer extends MobEntityRenderer<CatEntity, cat1model<CatEntity>> {
+public class BlackCatRenderer extends MobEntityRenderer<CatEntity, BlackCatModel<CatEntity>> {
     private static final Identifier TEXTURE = new Identifier(MineCat.MOD_ID, "textures/entity/cat1.png");
 
-    public CatRenderer(EntityRendererFactory.Context context) {
-        super(context, new cat1model<>(context.getPart(ModModelLayers.CAT1)), 0.6f);
+    public BlackCatRenderer(EntityRendererFactory.Context context) {
+        super(context, new BlackCatModel<>(context.getPart(ModModelLayers.CAT1)), 0.6f);
     }
 
     @Override

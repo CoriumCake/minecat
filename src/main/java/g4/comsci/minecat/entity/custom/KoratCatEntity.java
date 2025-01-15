@@ -51,8 +51,6 @@ public class KoratCatEntity extends AnimalEntity {
         // Debug output for movement state
     }
 
-
-
     @Override
     protected void updateLimbs(float posDelta) {
         float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
