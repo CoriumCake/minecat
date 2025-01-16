@@ -38,13 +38,7 @@ public class PersianCatEntity extends TameableEntity {
         this.goalSelector.add(2, new AnimalMateGoal(this, 1.15));
         this.goalSelector.add(3, new TemptGoal(this, 1.25D, TAMING_ITEMS, false));
         this.goalSelector.add(4, new FollowParentGoal(this, 1.15D));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D) {
-            @Override
-            public boolean canStart() {
-                // Prevent spinning by limiting wander to larger distances
-                return PersianCatEntity.this.getNavigation().isIdle() && PersianCatEntity.this.random.nextInt(10) == 0;
-            }
-        });
+        this.goalSelector.add(5, new WanderAroundFarGoal(this, 1.0D));
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.goalSelector.add(8, new FollowOwnerGoal(this, 1.2D, 5.0F, 2.0F, false));
@@ -58,21 +52,12 @@ public class PersianCatEntity extends TameableEntity {
         return stack.isOf(ModItems.CATFOOD);
     }
 
-    public static DefaultAttributeContainer.Builder createOrangeCatAttributes() {
+    public static DefaultAttributeContainer.Builder createPersianCatAttributes() {
         return TameableEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 500.0) // Reasonable high health
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
                 .add(EntityAttributes.GENERIC_ARMOR, 1000.0f) // Moderate armor
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 800.0); // Strong attack
-    }
-
-    @Override
-    public boolean damage(DamageSource source, float amount) {
-        // Reduce incoming damage for survivability
-        if (source.getAttacker() instanceof HostileEntity) {
-            amount *= 0.5; // Reduce damage by 50% from hostile mobs
-        }
-        return super.damage(source, amount);
     }
 
     @Override
@@ -113,17 +98,6 @@ public class PersianCatEntity extends TameableEntity {
             return ActionResult.SUCCESS;
         }
         return super.interactMob(player, hand);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.getOwner() instanceof PlayerEntity owner) {
-            LivingEntity target = owner.getAttacking();
-            if (target != null && this.distanceTo(target) < 10.0) {
-                this.setTarget(target); // Follow the owner's attack target
-            }
-        }
     }
 
     @Override

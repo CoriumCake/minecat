@@ -12,54 +12,26 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class KoratCatEntity extends AnimalEntity {
+public class KoratCatEntity extends TameableEntity {
 
-    public final AnimationState idleAnimationState = new AnimationState();
-    private int idleAnimationTimeout = 0;
-
-    public KoratCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public KoratCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    private void setupAnimationStates() {
-        boolean isMoving = this.getVelocity().horizontalLengthSquared() > 0.001;
-
-        if (isMoving) {
-            if (this.idleAnimationState.isRunning()) {
-                this.idleAnimationState.stop();
-            }
-        } else {
-            if (this.idleAnimationTimeout <= 0) {
-                this.idleAnimationTimeout = this.random.nextInt(40) + 80;
-                this.idleAnimationState.start(this.age);
-            } else {
-                --this.idleAnimationTimeout;
-            }
-        }
-    }
-
-    @Override
-    protected void updateLimbs(float posDelta) {
-        float f = this.getPose() == EntityPose.STANDING ? Math.min(posDelta * 6.0f, 1.0f) : 0.0f;
-        this.limbAnimator.updateLimbs(f, 0.2f);
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.getWorld().isClient()) {
-            setupAnimationStates();
-        }
-    }
+    private static final Ingredient TAMING_ITEMS = Ingredient.ofItems(ModItems.CATFOOD, ModItems.CAT_TEASER);
 
     @Override
     protected void initGoals() {
@@ -105,5 +77,28 @@ public class KoratCatEntity extends AnimalEntity {
         return SoundEvents.ENTITY_CAT_DEATH;
     }
 
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (TAMING_ITEMS.test(itemStack)) {
+            if (!this.getWorld().isClient) {
+                if (!this.isTamed() && this.random.nextInt(3) == 0) {
+                    this.setOwner(player);
+                    this.getWorld().sendEntityStatus(this, (byte) 7); // Taming success particle
+                } else {
+                    this.getWorld().sendEntityStatus(this, (byte) 6); // Taming failure particle
+                }
+            }
+            if (!player.getAbilities().creativeMode) {
+                itemStack.decrement(1);
+            }
+            return ActionResult.SUCCESS;
+        }
+        return super.interactMob(player, hand);
+    }
 
+    @Override
+    public EntityView method_48926() {
+        return this.getWorld();
+    }
 }

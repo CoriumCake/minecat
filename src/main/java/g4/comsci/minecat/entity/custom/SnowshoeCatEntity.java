@@ -48,7 +48,7 @@ public class SnowshoeCatEntity extends TameableEntity {
         return isBreeding;
     }
 
-    public static DefaultAttributeContainer.Builder createOrangeCatAttributes() {
+    public static DefaultAttributeContainer.Builder createSnowshoeCatAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
