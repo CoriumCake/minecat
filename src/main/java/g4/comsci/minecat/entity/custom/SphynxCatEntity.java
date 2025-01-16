@@ -39,38 +39,6 @@ public class SphynxCatEntity extends TameableEntity {
     }
 
     @Override
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        Item item = itemStack.getItem();
-
-        // Taming logic
-        if (item == ModItems.CATFOOD) {
-            if (!this.isTamed() && !this.getWorld().isClient) {
-                if (this.random.nextInt(3) == 0) { // 33% chance to tame
-                    this.setOwner(player);
-                    this.navigation.stop();
-                    this.setSitting(true);
-                    this.getWorld().sendEntityStatus(this, (byte) 7); // Success particle
-                } else {
-                    this.getWorld().sendEntityStatus(this, (byte) 6); // Failure particle
-                }
-                if (!player.getAbilities().creativeMode) {
-                    itemStack.decrement(1); // Consume item
-                }
-                return ActionResult.SUCCESS;
-            }
-        } else if (this.isTamed() && this.isOwner(player) && hand == Hand.MAIN_HAND) {
-            if (!this.getWorld().isClient) {
-                this.setSitting(!this.isSitting());
-                this.navigation.stop();
-                return ActionResult.SUCCESS;
-            }
-        }
-
-        return super.interactMob(player, hand);
-    }
-
-    @Override
     public void tick() {
         super.tick();
         if (miningCooldown > 0) {
@@ -125,7 +93,7 @@ public class SphynxCatEntity extends TameableEntity {
         this.goalSelector.add(6, new LookAroundGoal(this));
     }
 
-    public static DefaultAttributeContainer.Builder createCatAttributes() {
+    public static DefaultAttributeContainer.Builder createSphynxCatAttributes() {
         return AnimalEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);

@@ -25,6 +25,8 @@ public class BengalCatEntity extends AnimalEntity {
         super(entityType, world);
     }
 
+    private static final Ingredient TAMING_ITEMS = Ingredient.ofItems(ModItems.CATFOOD, ModItems.CAT_TEASER);
+
     @Override
     protected void initGoals() {
         this.goalSelector.add(0, new SwimGoal(this));
@@ -42,7 +44,7 @@ public class BengalCatEntity extends AnimalEntity {
         return isBreeding;
     }
 
-    public static DefaultAttributeContainer.Builder createOrangeCatAttributes() {
+    public static DefaultAttributeContainer.Builder createBengalCatAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
