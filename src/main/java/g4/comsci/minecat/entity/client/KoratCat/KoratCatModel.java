@@ -44,26 +44,6 @@ public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityMod
 	}
 	@Override
 	public void setAngles(KoratCatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.getPart().traverse().forEach(ModelPart::resetTransform); // Reset transforms
-		this.setHeadAngles(netHeadYaw, headPitch); // Update head angles
-
-		if (limbSwingAmount > 0.01f) {
-			// Apply walking animation
-			this.animateMovement(KoratCatAnimations.MODEL_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		} else {
-			// Apply idle animation
-			this.updateAnimation(entity.idleAnimationState, KoratCatAnimations.MODEL_IDLE, ageInTicks, 1f);
-		}
-	}
-
-
-
-	private void setHeadAngles(float headYaw, float headPitch){
-		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
-		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
-
-		this.head.yaw = headYaw * 0.017453292F;
-		this.head.pitch = headPitch * 0.017453292F;
 	}
 
 	@Override
