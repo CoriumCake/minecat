@@ -28,13 +28,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CatEntity extends TameableEntity {
+public class SphynxCatEntity extends TameableEntity {
 
     private static final int DETECTION_RADIUS = 20;
     private static final int MINING_COOLDOWN = 100; // ticks
     private int miningCooldown = 0;
 
-    public CatEntity(EntityType<? extends TameableEntity> entityType, World world) {
+    public SphynxCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 

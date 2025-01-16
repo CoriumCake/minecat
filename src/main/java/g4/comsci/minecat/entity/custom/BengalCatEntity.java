@@ -19,9 +19,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class ThailandCatEntity extends AnimalEntity {
+public class BengalCatEntity extends AnimalEntity {
 
-    public ThailandCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public BengalCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 

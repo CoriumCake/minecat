@@ -11,9 +11,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModEntities {
-    public static final EntityType<CatEntity> CAT1 = Registry.register(Registries.ENTITY_TYPE,
+    public static final EntityType<SphynxCatEntity> CAT1 = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat1"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SphynxCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
     public static final EntityType<KoratCatEntity> CAT2 = Registry.register(
@@ -24,34 +24,34 @@ public class ModEntities {
                     .build()
     );
 
-    public static final EntityType<OrangeCatEntity> CAT3 = Registry.register(
+    public static final EntityType<PersianCatEntity> CAT3 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat3"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, OrangeCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, PersianCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
-    public static final EntityType<LuciferCatEntity> CAT4 = Registry.register(
+    public static final EntityType<SnowshoeCatEntity> CAT4 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat4"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, LuciferCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SnowshoeCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
-    public static final EntityType<HeavenlyCatEntity> CAT5 = Registry.register(
+    public static final EntityType<ScottishCatEntity> CAT5 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat5"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HeavenlyCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ScottishCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
 
-    public static final EntityType<ThailandCatEntity> CAT6 = Registry.register(
+    public static final EntityType<BengalCatEntity> CAT6 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat6"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, ThailandCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BengalCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );

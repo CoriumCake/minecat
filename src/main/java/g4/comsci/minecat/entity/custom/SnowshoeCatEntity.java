@@ -19,9 +19,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class LuciferCatEntity extends AnimalEntity {
+public class SnowshoeCatEntity extends AnimalEntity {
 
-    public LuciferCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+    public SnowshoeCatEntity(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 

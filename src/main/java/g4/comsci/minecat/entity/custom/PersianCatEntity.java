@@ -2,7 +2,6 @@ package g4.comsci.minecat.entity.custom;
 
 import g4.comsci.minecat.entity.ModEntities;
 import g4.comsci.minecat.item.ModItems;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -24,11 +23,11 @@ import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class OrangeCatEntity extends TameableEntity {
+public class PersianCatEntity extends TameableEntity {
 
     private static final Ingredient TAMING_ITEMS = Ingredient.ofItems(ModItems.CATFOOD, ModItems.CAT_TEASER);
 
-    public OrangeCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
+    public PersianCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -43,7 +42,7 @@ public class OrangeCatEntity extends TameableEntity {
             @Override
             public boolean canStart() {
                 // Prevent spinning by limiting wander to larger distances
-                return OrangeCatEntity.this.getNavigation().isIdle() && OrangeCatEntity.this.random.nextInt(10) == 0;
+                return PersianCatEntity.this.getNavigation().isIdle() && PersianCatEntity.this.random.nextInt(10) == 0;
             }
         });
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));

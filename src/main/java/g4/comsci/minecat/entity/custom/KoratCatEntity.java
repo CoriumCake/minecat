@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class KoratCatEntity extends AnimalEntity {
+
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
@@ -30,16 +31,13 @@ public class KoratCatEntity extends AnimalEntity {
     }
 
     private void setupAnimationStates() {
-        // Check if the cat is moving based on velocity
         boolean isMoving = this.getVelocity().horizontalLengthSquared() > 0.001;
 
         if (isMoving) {
-            // Stop the idle animation if the entity is moving
             if (this.idleAnimationState.isRunning()) {
                 this.idleAnimationState.stop();
             }
         } else {
-            // Handle idle animation when the cat is stationary
             if (this.idleAnimationTimeout <= 0) {
                 this.idleAnimationTimeout = this.random.nextInt(40) + 80;
                 this.idleAnimationState.start(this.age);
@@ -47,8 +45,6 @@ public class KoratCatEntity extends AnimalEntity {
                 --this.idleAnimationTimeout;
             }
         }
-
-        // Debug output for movement state
     }
 
     @Override
@@ -78,8 +74,7 @@ public class KoratCatEntity extends AnimalEntity {
 
     @Override
     public boolean isBreedingItem(ItemStack stack) {
-        boolean isBreeding = stack.isOf(ModItems.CATFOOD);
-        return isBreeding;
+        return stack.isOf(ModItems.CATFOOD);
     }
 
     public static DefaultAttributeContainer.Builder createKoratCatAttributes() {
@@ -92,25 +87,23 @@ public class KoratCatEntity extends AnimalEntity {
 
     @Override
     public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        System.out.println("KoratCat is creating a child"); // Log child creation
         return ModEntities.CAT2.create(world);
     }
 
     @Override
     protected @Nullable SoundEvent getAmbientSound() {
-        System.out.println("Playing ambient sound"); // Log ambient sound
         return SoundEvents.ENTITY_CAT_AMBIENT;
     }
 
     @Override
     protected @Nullable SoundEvent getHurtSound(DamageSource source) {
-        System.out.println("KoratCat hurt sound"); // Log hurt sound
         return SoundEvents.ENTITY_CAT_HURT;
     }
 
     @Override
     protected @Nullable SoundEvent getDeathSound() {
-        System.out.println("KoratCat death sound"); // Log death sound
         return SoundEvents.ENTITY_CAT_DEATH;
     }
+
+
 }

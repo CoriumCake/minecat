@@ -1,16 +1,16 @@
-package g4.comsci.minecat.entity.client.ThailandCat;
+package g4.comsci.minecat.entity.client.BengalCat;
 
 
-import g4.comsci.minecat.entity.custom.ThailandCatEntity;
+import g4.comsci.minecat.entity.custom.BengalCatEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
 
-public class ThailandCatModel <T extends ThailandCatEntity> extends SinglePartEntityModel<T> {
+public class BengalCatModel<T extends BengalCatEntity> extends SinglePartEntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	private final ModelPart ThailandCat;
+	private final ModelPart BengalCat;
 	private final ModelPart head;
 	private final ModelPart body;
 	private final ModelPart front_left_leg;
@@ -20,16 +20,16 @@ public class ThailandCatModel <T extends ThailandCatEntity> extends SinglePartEn
 	private final ModelPart tail;
 	private final ModelPart tail2;
 
-	public ThailandCatModel(ModelPart root) {
-		this.ThailandCat = root.getChild("ThailandCat");
-		this.head = this.ThailandCat.getChild("head");
-		this.body = this.ThailandCat.getChild("body");
-		this.front_left_leg = this.ThailandCat.getChild("front_left_leg");
-		this.front_right_leg = this.ThailandCat.getChild("front_right_leg");
-		this.back_left_leg = this.ThailandCat.getChild("back_left_leg");
-		this.back_right_leg = this.ThailandCat.getChild("back_right_leg");
-		this.tail = this.ThailandCat.getChild("tail");
-		this.tail2 = this.ThailandCat.getChild("tail2");
+	public BengalCatModel(ModelPart root) {
+		this.BengalCat = root.getChild("ThailandCat");
+		this.head = this.BengalCat.getChild("head");
+		this.body = this.BengalCat.getChild("body");
+		this.front_left_leg = this.BengalCat.getChild("front_left_leg");
+		this.front_right_leg = this.BengalCat.getChild("front_right_leg");
+		this.back_left_leg = this.BengalCat.getChild("back_left_leg");
+		this.back_right_leg = this.BengalCat.getChild("back_right_leg");
+		this.tail = this.BengalCat.getChild("tail");
+		this.tail2 = this.BengalCat.getChild("tail2");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -59,17 +59,17 @@ public class ThailandCatModel <T extends ThailandCatEntity> extends SinglePartEn
 	}
 
 	@Override
-	public void setAngles(ThailandCatEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+	public void setAngles(BengalCatEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
 	}
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
-		ThailandCat.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+		BengalCat.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 	}
 
 	@Override
 	public ModelPart getPart() {
-		return ThailandCat;
+		return BengalCat;
 	}
 }

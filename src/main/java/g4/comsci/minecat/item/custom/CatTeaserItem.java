@@ -1,6 +1,6 @@
 package g4.comsci.minecat.item.custom;
 
-import g4.comsci.minecat.entity.custom.CatEntity;
+import g4.comsci.minecat.entity.custom.SphynxCatEntity;
 import g4.comsci.minecat.sound.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -42,7 +42,7 @@ public class CatTeaserItem extends Item {
             );
 
             // Get all nearby custom and vanilla cats
-            List<CatEntity> customCats = world.getEntitiesByClass(CatEntity.class, box, cat -> true);
+            List<SphynxCatEntity> customCats = world.getEntitiesByClass(SphynxCatEntity.class, box, cat -> true);
             List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box, cat -> true);
 
             // Combine both lists
@@ -54,7 +54,7 @@ public class CatTeaserItem extends Item {
                 // Attraction logic for cats
                 double dx, dy, dz;
 
-                if (cat instanceof CatEntity customCat) {
+                if (cat instanceof SphynxCatEntity customCat) {
                     dx = user.getX() - customCat.getX();
                     dz = user.getZ() - customCat.getZ();
                     dy = (user.getY() - customCat.getY()) + 0.5;
@@ -88,7 +88,7 @@ public class CatTeaserItem extends Item {
         );
 
         // Get all nearby custom and vanilla cats
-        List<CatEntity> customCats = world.getEntitiesByClass(CatEntity.class, box, cat -> true);
+        List<SphynxCatEntity> customCats = world.getEntitiesByClass(SphynxCatEntity.class, box, cat -> true);
         List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box, cat -> true);
 
         // Combine both lists
@@ -98,7 +98,7 @@ public class CatTeaserItem extends Item {
 
         // Spawn particles at each cat's position
         for (Object cat : allCats) {
-            if (cat instanceof CatEntity customCat) {
+            if (cat instanceof SphynxCatEntity customCat) {
                 spawnParticles(world, customCat.getX(), customCat.getY(), customCat.getZ());
             } else if (cat instanceof net.minecraft.entity.passive.CatEntity vanillaCat) {
                 spawnParticles(world, vanillaCat.getX(), vanillaCat.getY(), vanillaCat.getZ());

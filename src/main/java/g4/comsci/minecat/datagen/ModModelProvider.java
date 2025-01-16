@@ -46,10 +46,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MASHED_POTATOES, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CROISSANTS, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.CAT1_SPAWN_EGG,
+        itemModelGenerator.register(ModItems.SPHYNX_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
-
         itemModelGenerator.register(ModItems.KORATCAT_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.PERSIAN_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.SNOWSHOE_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.SCOTTISH_SPAWN_EGG,
+                new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
+        itemModelGenerator.register(ModItems.BENGAL_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));
     }
 }

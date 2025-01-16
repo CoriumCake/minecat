@@ -1,7 +1,6 @@
 package g4.comsci.minecat.entity.client.KoratCat;
 
 import g4.comsci.minecat.entity.animation.KoratCatAnimations;
-import g4.comsci.minecat.entity.animation.ModAnimations;
 import g4.comsci.minecat.entity.custom.KoratCatEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
@@ -10,12 +9,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
 public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityModel<T> {
-	private final ModelPart korat;
+	private final ModelPart KoratCat;
 	private final ModelPart head;
 
 	public KoratCatModel(ModelPart root) {
-		this.korat = root.getChild("korat");
-		this.head = this.korat.getChild("head");
+		this.KoratCat = root.getChild("korat");
+		this.head = this.KoratCat.getChild("head");
 
 	}
 	public static TexturedModelData getTexturedModelData() {
@@ -69,11 +68,11 @@ public class KoratCatModel<T extends KoratCatEntity> extends SinglePartEntityMod
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		korat.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+		KoratCat.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 
 	@Override
 	public ModelPart getPart() {
-		return korat;
+		return KoratCat;
 	}
 }
