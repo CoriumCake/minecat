@@ -2,6 +2,7 @@ package g4.comsci.minecat.entity.custom;
 
 import g4.comsci.minecat.entity.ModEntities;
 import g4.comsci.minecat.item.ModItems;
+import g4.comsci.minecat.screen.CatScreenHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -13,9 +14,12 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.EntityView;
@@ -76,6 +80,15 @@ public class KoratCatEntity extends TameableEntity {
 
     @Override
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        // GUI handling (shift + right click with empty hand)
+        if (player.isSneaking() && this.isTamed() && this.isOwner(player) && player.getStackInHand(hand).isEmpty()) {
+            if (!this.getWorld().isClient) {
+                player.openHandledScreen(createScreenHandlerFactory());
+            }
+            return ActionResult.SUCCESS;
+        }
+
+        // Taming logic
         ItemStack itemStack = player.getStackInHand(hand);
         if (TAMING_ITEMS.test(itemStack)) {
             if (!this.getWorld().isClient) {
@@ -91,8 +104,17 @@ public class KoratCatEntity extends TameableEntity {
             }
             return ActionResult.SUCCESS;
         }
+
         return super.interactMob(player, hand);
     }
+
+    private NamedScreenHandlerFactory createScreenHandlerFactory() {
+        return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) -> {
+            return new CatScreenHandler(syncId, inventory);
+        }, Text.literal("Korat Cat GUI"));
+    }
+
+
 
     @Override
     public EntityView method_48926() {
