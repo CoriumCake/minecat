@@ -36,10 +36,18 @@ public class ModItems {
     public static final Item CAT_JELLY = registerItem("cat_jelly", new Item(new Item.Settings().food(ModFoodComponents.CAT_JELLY)));
     public static final Item CAT_SOUP = registerItem("cat_soup", new Item(new Item.Settings().food(ModFoodComponents.CAT_SOUP)));
 
-    public static final Item CAT1_SPAWN_EGG = registerItem("cat1_spawn_egg",
+    public static final Item SPHYNX_SPAWN_EGG = registerItem("sphynx_spawn_egg",
             new SpawnEggItem(ModEntities.CAT1, 0xa86518, 0x3b260f, new FabricItemSettings()));
     public static final Item KORATCAT_SPAWN_EGG = registerItem("korat_spawn_egg",
             new SpawnEggItem(ModEntities.CAT2, 0xEAEAEA, 0x919095 , new FabricItemSettings()));
+    public static final Item PERSIAN_SPAWN_EGG = registerItem("persian_spawn_egg",
+            new SpawnEggItem(ModEntities.CAT3, 0xa86518, 0x3b260f, new FabricItemSettings()));
+    public static final Item SNOWSHOE_SPAWN_EGG = registerItem("snowshoe_spawn_egg",
+            new SpawnEggItem(ModEntities.CAT4, 0xa86518, 0x3b260f, new FabricItemSettings()));
+    public static final Item SCOTTISH_SPAWN_EGG = registerItem("scottish_spawn_egg",
+            new SpawnEggItem(ModEntities.CAT5, 0xa86518, 0x3b260f, new FabricItemSettings()));
+    public static final Item BENGAL_SPAWN_EGG = registerItem("bengal_spawn_egg",
+            new SpawnEggItem(ModEntities.CAT6, 0xa86518, 0x3b260f, new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(MineCat.MOD_ID, name), item);

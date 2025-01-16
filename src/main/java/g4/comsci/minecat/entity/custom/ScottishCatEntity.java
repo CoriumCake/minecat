@@ -28,9 +28,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class HeavenlyCatEntity extends TameableEntity {
+public class ScottishCatEntity extends TameableEntity {
 
-    public HeavenlyCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
+    public ScottishCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
     }
 
@@ -115,12 +115,12 @@ public class HeavenlyCatEntity extends TameableEntity {
 
     /* Custom Farming Goal */
     public static class FarmingGoal extends Goal {
-        private final HeavenlyCatEntity cat;
+        private final ScottishCatEntity cat;
         private BlockPos targetCrop;
         private final int range;
         private int recalculateCooldown = 0;
 
-        public FarmingGoal(HeavenlyCatEntity cat, int range) {
+        public FarmingGoal(ScottishCatEntity cat, int range) {
             this.cat = cat;
             this.range = range;
         }

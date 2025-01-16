@@ -1,14 +1,12 @@
-package g4.comsci.minecat.entity.client.blackCat;
+package g4.comsci.minecat.entity.client.SphynxCat;
 
-import g4.comsci.minecat.entity.animation.ModAnimations;
-import g4.comsci.minecat.entity.custom.CatEntity;
+import g4.comsci.minecat.entity.custom.SphynxCatEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.MathHelper;
 
-public class BlackCatModel<T extends CatEntity> extends SinglePartEntityModel<T> {
+public class SphynxCatModel<T extends SphynxCatEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart head;
 	private final ModelPart bone;
 	private final ModelPart Tophat;
@@ -20,7 +18,7 @@ public class BlackCatModel<T extends CatEntity> extends SinglePartEntityModel<T>
 	private final ModelPart back_right_leg;
 	private final ModelPart tail;
 	private final ModelPart tail2;
-	public BlackCatModel(ModelPart root) {
+	public SphynxCatModel(ModelPart root) {
 		this.head = root.getChild("head");
 		this.bone = this.head.getChild("bone");
 		this.Tophat = this.head.getChild("Tophat");
@@ -62,7 +60,7 @@ public class BlackCatModel<T extends CatEntity> extends SinglePartEntityModel<T>
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 	@Override
-	public void setAngles(CatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(SphynxCatEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 	}
 
 

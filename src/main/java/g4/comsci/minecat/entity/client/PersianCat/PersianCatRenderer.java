@@ -1,28 +1,28 @@
-package g4.comsci.minecat.entity.client.OrangeCat;
+package g4.comsci.minecat.entity.client.PersianCat;
 
 import g4.comsci.minecat.MineCat;
 import g4.comsci.minecat.entity.client.ModModelLayers;
-import g4.comsci.minecat.entity.custom.OrangeCatEntity;
+import g4.comsci.minecat.entity.custom.PersianCatEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
-public class OrangeCatRenderer extends MobEntityRenderer<OrangeCatEntity, OrangeCatModel<OrangeCatEntity>> {
+public class PersianCatRenderer extends MobEntityRenderer<PersianCatEntity, PersianCatModel<PersianCatEntity>> {
     private static final Identifier TEXTURE = new Identifier(MineCat.MOD_ID, "textures/entity/cat3.png");
 
-    public OrangeCatRenderer(EntityRendererFactory.Context context) {
-        super(context, new OrangeCatModel<>(context.getPart(ModModelLayers.CAT3)),0.6f);
+    public PersianCatRenderer(EntityRendererFactory.Context context) {
+        super(context, new PersianCatModel<>(context.getPart(ModModelLayers.CAT3)),0.6f);
     }
 
     @Override
-    public Identifier getTexture(OrangeCatEntity entity) {
+    public Identifier getTexture(PersianCatEntity entity) {
         return TEXTURE;
     }
 
     @Override
-    public void render(OrangeCatEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+    public void render(PersianCatEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         if(mobEntity.isBaby()){
             matrixStack.scale(0.4f,0.4f,0.4f);
         } else{

@@ -22,9 +22,19 @@
   "block.minecat.nether_purrium_ore": "Nether Purrium Ore",
   "block.minecat.end_purrium_ore": "End Stone Purrium Ore",
 
-  "item.minecat.cat1_spawn_egg": "CAT1 Spawn Egg",
+  "item.minecat.sphynx_spawn_egg": "Sphynx Cat Spawn Egg",
   "item.minecat.korat_spawn_egg": "Korat Cat Spawn Egg",
-  "entity.minecat.cat1": "Black Cat",
+  "item.minecat.persian_spawn_egg": "Persian Cat Spawn Egg",
+  "item.minecat.snowshoe_spawn_egg": "Snowshoe Cat Spawn Egg",
+  "item.minecat.scottish_spawn_egg": "Scottish Cat Spawn Egg",
+  "item.minecat.bengal_spawn_egg": "Bengal Cat Spawn Egg",
+
+  "entity.minecat.cat1": "Sphynx Cat",
+  "entity.minecat.cat2": "Korat Cat",
+  "entity.minecat.cat3": "Persian Cat",
+  "entity.minecat.cat4": "Snowshoe Cat",
+  "entity.minecat.cat5": "Scottish Cat",
+  "entity.minecat.cat6": "Bengal Cat",
 
   "itemgroup.minecat": "MineCat"
 }
