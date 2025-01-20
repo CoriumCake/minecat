@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.passive.CatEntity;
+import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -41,8 +42,8 @@ public class CatLocatorItem extends Item {
     // --------- GUI Class ---------
     public static class CatLocatorScreen extends Screen {
         private final PlayerEntity player;
-        private List<CatEntity> ownedCats = new ArrayList<>();
-        private List<CatEntity> filteredCats = new ArrayList<>();
+        private List<TameableEntity> ownedCats = new ArrayList<>();
+        private List<TameableEntity> filteredCats = new ArrayList<>();
         private TextFieldWidget searchField;
         private String searchText = "";
         private boolean sortByDistance = false;
@@ -105,11 +106,13 @@ public class CatLocatorItem extends Item {
             Box searchArea = new Box(player.getX() - 50, player.getY() - 50, player.getZ() - 50,
                     player.getX() + 50, player.getY() + 50, player.getZ() + 50);
 
-            this.ownedCats = world.getEntitiesByClass(CatEntity.class, searchArea,
-                    cat -> cat.isTamed() && cat.getOwnerUuid() != null && cat.getOwnerUuid().equals(player.getUuid()));
+            // ค้นหาเอนทิตีที่เป็น TameableEntity และเจ้าของเป็นผู้เล่น
+            this.ownedCats = world.getEntitiesByClass(TameableEntity.class, searchArea,
+                    entity -> entity.isTamed() && entity.getOwnerUuid() != null && entity.getOwnerUuid().equals(player.getUuid()));
 
             this.filteredCats = new ArrayList<>(ownedCats);
         }
+
 
         private void filterCats() {
             this.catButtons.forEach(this::remove); // Remove old buttons
@@ -117,19 +120,24 @@ public class CatLocatorItem extends Item {
 
             // Filter and sort cats
             this.filteredCats = ownedCats.stream()
-                    .filter(cat -> cat.getName().getString().toLowerCase().contains(searchText.toLowerCase()))
-                    .sorted((cat1, cat2) -> {
+                    .filter(entity -> entity.getName().getString().toLowerCase().contains(searchText.toLowerCase()))
+                    .sorted((entity1, entity2) -> {
                         if (sortByDistance) {
                             return sortAscending
-                                    ? Double.compare(cat1.squaredDistanceTo(player), cat2.squaredDistanceTo(player))
-                                    : Double.compare(cat2.squaredDistanceTo(player), cat1.squaredDistanceTo(player));
+                                    ? Double.compare(entity1.squaredDistanceTo(player), entity2.squaredDistanceTo(player)) //จะเรียงลำดับจากระยะทางน้อย ไป มาก
+
+                                    : Double.compare(entity2.squaredDistanceTo(player), entity1.squaredDistanceTo(player));//จะเรียงลำดับจากระยะทางมาก ไป น้อย
+                            //ใช้เมธ็อด Double.compare() ที่ติดมากับ java อยู่แล้ว  ใช้ squaredDistanceTo(player) เพื่อคำนวณระยะทาง ที่ห่างกับตัวผู้เล่น
                         } else {
                             return sortAscending
-                                    ? cat1.getName().getString().compareToIgnoreCase(cat2.getName().getString())
-                                    : cat2.getName().getString().compareToIgnoreCase(cat1.getName().getString());
+                                    ? entity1.getName().getString().compareToIgnoreCase(entity2.getName().getString())
+                                    : entity2.getName().getString().compareToIgnoreCase(entity1.getName().getString());
+                            // getName().getString() เพื่อดึงชื่อของแมวในรูปแบบข้อความ compareToIgnoreCase() เปรียบเทียบโดยไม่สนตัวโหญ่ตัวเล็ก
+
                         }
                     })
                     .collect(Collectors.toList());
+
 
             int centerX = this.width / 2;
             int startY = this.height / 2 - 70;
@@ -137,16 +145,16 @@ public class CatLocatorItem extends Item {
             int maxEntries = (this.height - startY - 10) / lineHeight;
 
             for (int i = 0; i < Math.min(filteredCats.size(), maxEntries); i++) {
-                CatEntity cat = filteredCats.get(i);
-                String name = cat.getName().getString();
-                double distance = Math.sqrt(player.squaredDistanceTo(cat));
+                TameableEntity entity = filteredCats.get(i);
+                String name = entity.getName().getString();
+                double distance = Math.sqrt(player.squaredDistanceTo(entity));
                 String entry = name + " (Distance: " + Math.round(distance) + ")";
 
-                int x = centerX - 100; // Centered horizontally
-                int y = startY + (i * lineHeight); // Spaced vertically
+                int x = centerX - 100; // ตำแหน่งแนวนอน
+                int y = startY + (i * lineHeight); // ตำแหน่งแนวตั้ง
 
                 ButtonWidget catButton = ButtonWidget.builder(Text.literal(entry), button -> {
-                    selectCat(cat);
+                    selectEntity(entity);
                 }).dimensions(x, y, 200, 20).build();
 
                 this.addDrawableChild(catButton);
@@ -162,20 +170,21 @@ public class CatLocatorItem extends Item {
             this.distanceSortButton.setMessage(Text.literal(distanceSortText));
         }
 
-        private void selectCat(CatEntity cat) {
-            // Send a packet to the server to apply the glow effect
+        private void selectEntity(TameableEntity entity) {
+            // ส่งข้อมูลไปยังเซิร์ฟเวอร์เพื่อใช้เอฟเฟกต์
             PacketByteBuf buf = PacketByteBufs.create();
-            buf.writeInt(cat.getId()); // Write the entity ID
+            buf.writeInt(entity.getId()); // ส่ง ID ของเอนทิตี
             ClientPlayNetworking.send(CatLocatorPacketHandler.SET_GLOW_PACKET_ID, buf);
 
-            // Display a message with the cat's position
-            Vec3d position = cat.getPos();
-            player.sendMessage(Text.literal("Cat " + cat.getName().getString() + " is at: X=" +
+            // แสดงข้อความตำแหน่งของเอนทิตี
+            Vec3d position = entity.getPos();
+            player.sendMessage(Text.literal("Entity " + entity.getName().getString() + " is at: X=" +
                     Math.round(position.x) + ", Y=" + Math.round(position.y) + ", Z=" + Math.round(position.z)), false);
 
-            // Close the UI
+            // ปิด UI
             this.close();
         }
+
 
 
         @Override
