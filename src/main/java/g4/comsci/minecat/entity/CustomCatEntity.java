@@ -1,5 +1,7 @@
 package g4.comsci.minecat.entity;
 
+import g4.comsci.minecat.entity.behavior.CatBehaviorManager;
+
 public interface CustomCatEntity {
     CatBehaviorManager getBehaviorManager();
 
@@ -17,5 +19,6 @@ public interface CustomCatEntity {
 
     default boolean isWoodcutting() {
         return getBehaviorManager().isBehaviorEnabled("woodcutting");
-    } // Add this
+    }
+
 }
