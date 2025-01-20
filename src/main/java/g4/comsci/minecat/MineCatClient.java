@@ -16,15 +16,11 @@ import g4.comsci.minecat.entity.client.BengalCat.BengalCatRenderer;
 import g4.comsci.minecat.entity.client.SphynxCat.SphynxCatModel;
 
 import g4.comsci.minecat.item.custom.CatLocatorItem;
-import g4.comsci.minecat.screen.CatScreenHandler;
-import g4.comsci.minecat.screen.ModScreenHandlers;
-import g4.comsci.minecat.screen.CatScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 
@@ -47,11 +43,6 @@ public class MineCatClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.CAT6, BengalCatModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.CAT6, BengalCatRenderer::new);
 
-        // Register entity renderer
-        EntityRendererRegistry.register(ModEntities.CAT2, KoratCatRenderer::new);
-
-        // Register screen
-        ScreenRegistry.register(CatScreenHandler.CAT_SCREEN_HANDLER, CatScreen::new);
     }
 
     public static void openCatLocatorScreen(PlayerEntity player) {

@@ -28,9 +28,7 @@ public class CatTeaserItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-            // Server-side logic: Play sound and apply cat attraction logic
 
-            // Play random sound
             SoundEvent[] sounds = {ModSounds.CAT_TEASER_RCLICK, SoundEvents.ENTITY_CAT_PURR, SoundEvents.ENTITY_CAT_AMBIENT};
             SoundEvent randomSound = sounds[RANDOM.nextInt(sounds.length)];
             user.getWorld().playSound(null, user.getBlockPos(), randomSound, SoundCategory.BLOCKS, 1f, 1f);
@@ -107,9 +105,9 @@ public class CatTeaserItem extends Item {
     }
 
     private void spawnParticles(World world, double x, double y, double z) {
-        if (!world.isClient) return; // Ensure this runs only on the client side
+        if (!world.isClient) return;
 
-        for (int i = 0; i < 5; i++) { // Spawn 5 particles
+        for (int i = 0; i < 5; i++) {
             double offsetX = RANDOM.nextGaussian() * 0.1;
             double offsetY = RANDOM.nextGaussian() * 0.1;
             double offsetZ = RANDOM.nextGaussian() * 0.1;

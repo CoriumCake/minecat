@@ -14,7 +14,6 @@ import g4.comsci.minecat.item.ModItems;
 
 import g4.comsci.minecat.network.CatLocatorPacketHandler;
 
-import g4.comsci.minecat.screen.ModScreenHandlers;
 import g4.comsci.minecat.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
@@ -41,8 +40,6 @@ public class MineCat implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT4, SnowshoeCatEntity.createSnowshoeCatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT5, ScottishCatEntity.createScottishCatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT6, BengalCatEntity.createBengalCatAttributes());
-
-		ModScreenHandlers.register();
 
 		FuelRegistry.INSTANCE.add(ModItems.CATFUEL,200);
 	}
