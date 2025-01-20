@@ -1,38 +1,84 @@
 package g4.comsci.minecat.entity.custom;
 
+import g4.comsci.minecat.entity.CatBehaviorManager;
+import g4.comsci.minecat.entity.CustomCatEntity;
 import g4.comsci.minecat.entity.ModEntities;
 import g4.comsci.minecat.item.ModItems;
-import g4.comsci.minecat.screen.CatScreenHandler;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.screen.NamedScreenHandlerFactory;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.EntityView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class KoratCatEntity extends TameableEntity {
+
+public class KoratCatEntity extends TameableEntity implements CustomCatEntity {
+    private final CatBehaviorManager behaviorManager;
 
     public KoratCatEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
+        this.behaviorManager = new CatBehaviorManager(this);
     }
 
-    private static final Ingredient TAMING_ITEMS = Ingredient.ofItems(ModItems.CATFOOD, ModItems.CAT_TEASER);
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        Item item = itemStack.getItem();
+
+        if (item == ModItems.CATFOOD) {
+            // Taming and food logic
+            if (!this.isTamed() && !this.getWorld().isClient) {
+                if (this.random.nextInt(3) == 0) {
+                    this.setOwner(player);
+                    this.navigation.stop();
+                    this.setSitting(true);
+                    this.getWorld().sendEntityStatus(this, (byte) 7); // Success particle
+                } else {
+                    this.getWorld().sendEntityStatus(this, (byte) 6); // Failure particle
+                }
+                if (!player.getAbilities().creativeMode) {
+                    itemStack.decrement(1); // Consume item
+                }
+                return ActionResult.SUCCESS;
+            }
+        } else if (this.isTamed() && this.isOwner(player) && hand == Hand.MAIN_HAND) {
+            if (!this.getWorld().isClient) {
+                this.setSitting(!this.isSitting());
+                this.navigation.stop();
+                return ActionResult.SUCCESS;
+            }
+        }
+
+        return super.interactMob(player, hand);
+    }
+
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.isTamed() && this.getOwner() instanceof PlayerEntity owner && !this.isSitting()) {
+            behaviorManager.tick(owner);
+        }
+    }
+
+    @Override
+    public CatBehaviorManager getBehaviorManager() {
+        return behaviorManager;
+    }
 
     @Override
     protected void initGoals() {
@@ -46,22 +92,15 @@ public class KoratCatEntity extends TameableEntity {
         this.goalSelector.add(7, new LookAtEntityGoal(this, PlayerEntity.class, 10f));
     }
 
-    @Override
-    public boolean isBreedingItem(ItemStack stack) {
-        return stack.isOf(ModItems.CATFOOD);
-    }
-
     public static DefaultAttributeContainer.Builder createKoratCatAttributes() {
-        return MobEntity.createMobAttributes()
+        return KoratCatEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f)
-                .add(EntityAttributes.GENERIC_ARMOR, 0.0f)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2.0);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
     }
 
     @Override
-    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return ModEntities.CAT2.create(world);
+    public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity mate) {
+        return ModEntities.CAT1.create(world);
     }
 
     @Override
@@ -78,43 +117,6 @@ public class KoratCatEntity extends TameableEntity {
     protected @Nullable SoundEvent getDeathSound() {
         return SoundEvents.ENTITY_CAT_DEATH;
     }
-
-    @Override
-    public ActionResult interactMob(PlayerEntity player, Hand hand) {
-        // GUI handling (shift + right click with empty hand)
-        if (player.isSneaking() && this.isTamed() && this.isOwner(player) && player.getStackInHand(hand).isEmpty()) {
-            if (!this.getWorld().isClient) {
-                player.openHandledScreen(createScreenHandlerFactory());
-            }
-            return ActionResult.SUCCESS;
-        }
-
-        // Taming logic
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (TAMING_ITEMS.test(itemStack)) {
-            if (!this.getWorld().isClient) {
-                if (!this.isTamed() && this.random.nextInt(3) == 0) {
-                    this.setOwner(player);
-                    this.getWorld().sendEntityStatus(this, (byte) 7); // Taming success particle
-                } else {
-                    this.getWorld().sendEntityStatus(this, (byte) 6); // Taming failure particle
-                }
-            }
-            if (!player.getAbilities().creativeMode) {
-                itemStack.decrement(1);
-            }
-            return ActionResult.SUCCESS;
-        }
-        return super.interactMob(player, hand);
-    }
-
-    private NamedScreenHandlerFactory createScreenHandlerFactory() {
-        return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) -> {
-            return new CatScreenHandler(syncId, inventory);
-        }, Text.literal("Korat Cat GUI"));
-    }
-
-
 
     @Override
     public EntityView method_48926() {
