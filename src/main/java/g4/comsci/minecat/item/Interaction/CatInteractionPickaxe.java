@@ -1,8 +1,6 @@
 package g4.comsci.minecat.item.Interaction;
 
-import g4.comsci.minecat.entity.CustomCatEntity;
 import g4.comsci.minecat.entity.custom.KoratCatEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
@@ -26,8 +24,8 @@ public class CatInteractionPickaxe extends PickaxeItem {
                     .forEach(customCat -> {
                         customCat.toggleMining(); // Directly use the entity since it's already KoratCatEntity
                         String message = customCat.isMining()
-                                ? "Your cat started mining!"
-                                : "Your cat start mining!";
+                                ? "Your cat start mining!"
+                                : "Your cat stop mining!";
                         player.sendMessage(Text.literal(message), true);
                     });
 
