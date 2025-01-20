@@ -28,10 +28,10 @@ public class ModItems {
     public static final Item PURRIUM_HOE = registerItem("purrium_hoe",
             new HoeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
 
+    // เพิ่ม CatTeaserItem ที่นี่
     public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item CATFUEL = registerItem("catfuel", new Item(new FabricItemSettings()));
-
 
     public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings()));
 

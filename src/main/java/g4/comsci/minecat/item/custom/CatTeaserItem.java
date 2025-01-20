@@ -1,17 +1,22 @@
 package g4.comsci.minecat.item.custom;
 
 import g4.comsci.minecat.entity.custom.CatEntity;
+import g4.comsci.minecat.entity.custom.KoratCatEntity;
 import g4.comsci.minecat.sound.ModSounds;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.Box;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -126,5 +131,28 @@ public class CatTeaserItem extends Item {
         }
     }
 
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        // Check if the player is using the item
+        PlayerEntity player = context.getPlayer();
+        World world = context.getWorld();
 
+        // If used on a block in the client world, stop execution
+        if (world.isClient) return ActionResult.SUCCESS;
+
+        // Spawn the Korat cat entity
+        KoratCatEntity cat = new KoratCatEntity(EntityType.CAT, world);
+
+        // Set the spawn position near the player
+        BlockPos position = player.getBlockPos().add(2, 0, 2);  // Adjust the spawn position as needed
+        cat.refreshPositionAndAngles(position.getX(), position.getY(), position.getZ(), 0.0F, 0.0F);
+
+        // Spawn the cat in the world
+        world.spawnEntity(cat);
+
+        // Make the cat walk toward the player like it's following a fishing rod
+        cat.getNavigation().startMovingTo(player, 1.0D);  // Adjust the cat's walking speed if needed
+
+        return ActionResult.SUCCESS;
+    }
 }
