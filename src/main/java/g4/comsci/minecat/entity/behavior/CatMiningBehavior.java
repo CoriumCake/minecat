@@ -32,12 +32,10 @@ public class CatMiningBehavior {
         World world = cat.getWorld();
         long currentTime = world.getTime();
 
-        // Reset attempts if we don't have a target
         if (targetBlock == null) {
             attempts = 0;
         }
 
-        // If we have a target block, try to mine it
         if (targetBlock != null) {
             if (!isOreBlock(world.getBlockState(targetBlock).getBlock())) {
                 resetForNewTarget();

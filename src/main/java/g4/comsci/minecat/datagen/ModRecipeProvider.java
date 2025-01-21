@@ -18,6 +18,42 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
+
+        // Catfood Recipe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CATFOOD, 4)
+                .pattern("FFF")
+                .pattern("FPF")
+                .pattern("FFF")
+                .input('F', Items.COD)
+                .input('P', ModItems.PURRIUM)
+                .criterion(hasItem(Items.COD), conditionsFromItem(Items.COD))
+                .criterion(hasItem(ModItems.PURRIUM), conditionsFromItem(ModItems.PURRIUM))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CATFOOD)));
+
+        // Cat Locator Recipe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CAT_LOCATOR, 1)
+                .pattern(" P ")
+                .pattern("PCP")
+                .pattern(" P ")
+                .input('P', ModItems.PURRIUM)
+                .input('C', Items.COMPASS)
+                .criterion(hasItem(ModItems.PURRIUM), conditionsFromItem(ModItems.PURRIUM))
+                .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CAT_LOCATOR)));
+
+        // Cat Teaser Recipe
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CAT_TEASER, 1)
+                .pattern("  S")
+                .pattern(" ST")
+                .pattern("S F")
+                .input('S', Items.STICK)
+                .input('T', Items.STRING)
+                .input('F', Items.COD)
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .criterion(hasItem(Items.STRING), conditionsFromItem(Items.STRING))
+                .criterion(hasItem(Items.COD), conditionsFromItem(Items.COD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CAT_TEASER)));
+
         // Purrium Sword Recipe
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PURRIUM_SWORD, 1)
                 .pattern(" P ")

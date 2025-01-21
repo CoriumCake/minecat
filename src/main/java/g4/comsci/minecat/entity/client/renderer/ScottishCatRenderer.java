@@ -23,13 +23,4 @@ public class ScottishCatRenderer extends MobEntityRenderer<ScottishCatEntity, Ca
         return TEXTURE;
     }
 
-    @Override
-    public void render(ScottishCatEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(mobEntity.isBaby()){
-            matrixStack.scale(0.4f,0.4f,0.4f);
-        } else{
-            matrixStack.scale(1f, 1f, 1f);
-        }
-        super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
-    }
 }

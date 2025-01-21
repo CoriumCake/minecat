@@ -3,7 +3,7 @@
 	"id": "minecat",
 	"version": "${version}",
 	"name": "MineCat",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod make cat useful :)",
 	"authors": [
 		"6 computer science student at SUT"
 	],
@@ -12,7 +12,7 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/minecat/icon.png",
+	"icon": "assets/minecat/textures/item/catfood.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

@@ -18,17 +18,14 @@ public class CatBehaviorManager {
     }
 
     public void toggleBehavior(String behavior) {
-        // If enabling woodcutting, disable all other behaviors first
         if (behavior.equals("woodcutting") && !config.isBehaviorEnabled("woodcutting")) {
             config.disableAllBehaviors();
         }
 
-        // If enabling any other behavior and woodcutting is active, don't allow it
         if (!behavior.equals("woodcutting") && config.isBehaviorEnabled("woodcutting")) {
             return;
         }
 
-        // Toggle the requested behavior
         config.toggleBehavior(behavior);
 
         if (!config.isBehaviorEnabled(behavior)) {
@@ -65,18 +62,15 @@ public class CatBehaviorManager {
             return;
         }
 
-        // Only handle woodcutting if it's enabled
         if (config.isBehaviorEnabled("woodcutting")) {
             woodcuttingBehavior.handleWoodcutting(owner);
             return; // Skip all other behaviors
         }
 
-        // Only handle mining if woodcutting is not active
         if (config.isBehaviorEnabled("mining")) {
             miningBehavior.handleMining(owner);
         }
 
-        // Handle return-to-owner state for non-woodcutting behaviors
         if (isReturningToOwner) {
             if (distanceToOwner <= config.getReturnToOwnerDistance() * config.getReturnToOwnerDistance()) {
                 isReturningToOwner = false;

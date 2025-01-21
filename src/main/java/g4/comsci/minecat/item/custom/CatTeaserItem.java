@@ -20,6 +20,8 @@ import java.util.Random;
 
 public class CatTeaserItem extends Item {
     private static final Random RANDOM = new Random();
+    private static final double HORIZONTAL_MULTIPLIER = 0.1;
+    private static final double VERTICAL_MULTIPLIER = 0.05;
 
     public CatTeaserItem(Settings settings) {
         super(settings);
@@ -28,7 +30,6 @@ public class CatTeaserItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient) {
-
             SoundEvent[] sounds = {ModSounds.CAT_TEASER_RCLICK, SoundEvents.ENTITY_CAT_PURR, SoundEvents.ENTITY_CAT_AMBIENT};
             SoundEvent randomSound = sounds[RANDOM.nextInt(sounds.length)];
             user.getWorld().playSound(null, user.getBlockPos(), randomSound, SoundCategory.BLOCKS, 1f, 1f);
@@ -49,7 +50,6 @@ public class CatTeaserItem extends Item {
             allCats.addAll(vanillaCats);
 
             for (Object cat : allCats) {
-                // Attraction logic for cats
                 double dx, dy, dz;
 
                 if (cat instanceof SphynxCatEntity customCat) {
@@ -57,7 +57,11 @@ public class CatTeaserItem extends Item {
                     dz = user.getZ() - customCat.getZ();
                     dy = (user.getY() - customCat.getY()) + 0.5;
 
-                    customCat.addVelocity(dx * 0.4, dy * 0.4, dz * 0.4);
+                    customCat.addVelocity(
+                            dx * HORIZONTAL_MULTIPLIER,
+                            dy * VERTICAL_MULTIPLIER,
+                            dz * HORIZONTAL_MULTIPLIER
+                    );
                     customCat.velocityDirty = true;
                     customCat.lookAtEntity(user, 30.0F, 30.0F);
                 } else if (cat instanceof net.minecraft.entity.passive.CatEntity vanillaCat) {
@@ -65,7 +69,11 @@ public class CatTeaserItem extends Item {
                     dz = user.getZ() - vanillaCat.getZ();
                     dy = (user.getY() - vanillaCat.getY()) + 0.5;
 
-                    vanillaCat.addVelocity(dx * 0.4, dy * 0.4, dz * 0.4);
+                    vanillaCat.addVelocity(
+                            dx * HORIZONTAL_MULTIPLIER,
+                            dy * VERTICAL_MULTIPLIER,
+                            dz * HORIZONTAL_MULTIPLIER
+                    );
                     vanillaCat.velocityDirty = true;
                     vanillaCat.lookAtEntity(user, 30.0F, 30.0F);
                 }
@@ -79,22 +87,18 @@ public class CatTeaserItem extends Item {
     }
 
     private void spawnParticlesForCats(World world, PlayerEntity user) {
-        // Define a bounding box to find nearby cats
         Box box = new Box(
                 user.getX() - 10, user.getY() - 10, user.getZ() - 10,
                 user.getX() + 10, user.getY() + 10, user.getZ() + 10
         );
 
-        // Get all nearby custom and vanilla cats
         List<SphynxCatEntity> customCats = world.getEntitiesByClass(SphynxCatEntity.class, box, cat -> true);
         List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box, cat -> true);
 
-        // Combine both lists
         List<Object> allCats = new ArrayList<>();
         allCats.addAll(customCats);
         allCats.addAll(vanillaCats);
 
-        // Spawn particles at each cat's position
         for (Object cat : allCats) {
             if (cat instanceof SphynxCatEntity customCat) {
                 spawnParticles(world, customCat.getX(), customCat.getY(), customCat.getZ());
@@ -113,16 +117,14 @@ public class CatTeaserItem extends Item {
             double offsetZ = RANDOM.nextGaussian() * 0.1;
 
             world.addParticle(
-                    ParticleTypes.HEART, // Particle type
-                    x,                   // X-coordinate (cat's position)
-                    y + 1,               // Y-coordinate (adjusted for cat height)
-                    z,                   // Z-coordinate (cat's position)
-                    offsetX,             // X-offset velocity
-                    offsetY,             // Y-offset velocity
-                    offsetZ              // Z-offset velocity
+                    ParticleTypes.HEART,
+                    x,
+                    y + 1,
+                    z,
+                    offsetX,
+                    offsetY,
+                    offsetZ
             );
         }
     }
-
-
 }
