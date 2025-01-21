@@ -29,14 +29,7 @@ public class ModItems {
             new HoeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
 
     public static final Item CAT_TEASER = registerItem("cat_teaser", new CatTeaserItem(new FabricItemSettings().maxCount(1)));
-    public static final Item CATFUEL = registerItem("catfuel", new Item(new FabricItemSettings()));
     public static final Item CAT_LOCATOR = registerItem("cat_locator", new CatLocatorItem(new FabricItemSettings().maxCount(1)));
-
-    public static final Item CROISSANTS = registerItem("croissants", new Item(new FabricItemSettings().food(ModFoodComponents.CROISSANTS)));
-    public static final Item MASHED_POTATOES = registerItem("mashed_potatoes", new Item(new FabricItemSettings().food(ModFoodComponents.MASHED_POTATOES)));
-    public static final Item Green_Tea = registerItem("green_tea", new Item(new FabricItemSettings().food(ModFoodComponents.Green_Tea)));
-    public static final Item CAT_JELLY = registerItem("cat_jelly", new Item(new Item.Settings().food(ModFoodComponents.CAT_JELLY)));
-    public static final Item CAT_SOUP = registerItem("cat_soup", new Item(new Item.Settings().food(ModFoodComponents.CAT_SOUP)));
 
     public static final Item SPHYNX_SPAWN_EGG = registerItem("sphynx_spawn_egg",
             new SpawnEggItem(ModEntities.CAT1, 0x8D817F, 0xfbecd2, new FabricItemSettings()));

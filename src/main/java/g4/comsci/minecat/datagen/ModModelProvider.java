@@ -28,7 +28,6 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.CATFOOD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CATFUEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_LOCATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAT_TEASER, Models.GENERATED);
 
@@ -39,12 +38,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PURRIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PURRIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PURRIUM_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.CAT_JELLY, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CAT_SOUP, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.Green_Tea, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MASHED_POTATOES, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CROISSANTS, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.SPHYNX_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")),Optional.empty()));

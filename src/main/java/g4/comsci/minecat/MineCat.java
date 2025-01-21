@@ -15,6 +15,7 @@ import g4.comsci.minecat.item.ModItems;
 import g4.comsci.minecat.network.CatLocatorPacketHandler;
 
 import g4.comsci.minecat.sound.ModSounds;
+import g4.comsci.minecat.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -41,6 +42,6 @@ public class MineCat implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT5, ScottishCatEntity.createScottishCatAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.CAT6, BengalCatEntity.createBengalCatAttributes());
 
-		FuelRegistry.INSTANCE.add(ModItems.CATFUEL,200);
+		ModWorldGeneration.generateModWorldGeneration();
 	}
 }
