@@ -20,7 +20,6 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PURRIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PURRIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_PURRIUM_ORE);
     }

@@ -21,8 +21,6 @@ public class ModBlocks {
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.DEEPSLATE).strength(4f), UniformIntProvider.create(2, 5)));
     public static final Block NETHER_PURRIUM_ORE = registerBlock("nether_purrium_ore",
             new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.NETHERRACK).strength(1.5f), UniformIntProvider.create(2, 5)));
-    public static final Block END_PURRIUM_ORE = registerBlock("end_purrium_ore",
-            new ExperienceDroppingBlock(FabricBlockSettings.copyOf(Blocks.END_STONE).strength(4f), UniformIntProvider.create(4, 7)));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

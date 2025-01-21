@@ -28,7 +28,6 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PURRIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);
-                        entries.add(ModBlocks.END_PURRIUM_ORE);
 
                         entries.add(ModItems.SPHYNX_SPAWN_EGG);
                         entries.add(ModItems.KORATCAT_SPAWN_EGG);
