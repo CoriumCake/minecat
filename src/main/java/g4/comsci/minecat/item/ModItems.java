@@ -18,13 +18,13 @@ public class ModItems {
     public static final Item PURRIUM = registerItem("purrium", new Item(new FabricItemSettings()));
 
     public static final Item PURRIUM_PICKAXE = registerItem("purrium_pickaxe",
-            new CatInteractionPickaxe(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+            new CatInteractionPickaxe(ModToolMaterial.PURRIUM, 3, 2f, new FabricItemSettings()));
     public static final Item PURRIUM_AXE = registerItem("purrium_axe",
-            new CatInteractionAxe(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+            new CatInteractionAxe(ModToolMaterial.PURRIUM, 8, 0.8f, new FabricItemSettings()));
     public static final Item PURRIUM_SHOVEL = registerItem("purrium_shovel",
-            new ShovelItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
+            new ShovelItem(ModToolMaterial.PURRIUM, 3, 2f, new FabricItemSettings()));
     public static final Item PURRIUM_SWORD = registerItem("purrium_sword",
-            new SwordItem(ModToolMaterial.PURRIUM, 999, 50f, new FabricItemSettings()));
+            new SwordItem(ModToolMaterial.PURRIUM, 7, 2f, new FabricItemSettings()));
     public static final Item PURRIUM_HOE = registerItem("purrium_hoe",
             new HoeItem(ModToolMaterial.PURRIUM, 2, 2f, new FabricItemSettings()));
 
