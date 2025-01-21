@@ -20,9 +20,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_PURRIUM_ORE)
                 .add(ModBlocks.NETHER_PURRIUM_ORE)
                 .add(ModBlocks.PURRIUM_ORE);
-
-
-
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL);
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.NETHER_PURRIUM_ORE);
