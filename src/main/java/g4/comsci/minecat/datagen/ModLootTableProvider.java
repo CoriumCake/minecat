@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
@@ -23,10 +24,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
-        addDrop(ModBlocks.PURRIUM_ORE, copperLikeOreDrops(ModBlocks.PURRIUM_ORE, ModItems.CATFUEL));
-        addDrop(ModBlocks.DEEPSLATE_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.DEEPSLATE_PURRIUM_ORE, ModItems.CATFUEL));
-        addDrop(ModBlocks.NETHER_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.NETHER_PURRIUM_ORE, ModItems.CATFUEL));
-        addDrop(ModBlocks.END_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.END_PURRIUM_ORE, ModItems.CATFUEL));
+        addDrop(ModBlocks.PURRIUM_ORE, copperLikeOreDrops(ModBlocks.PURRIUM_ORE, Items.COAL_ORE));
+        addDrop(ModBlocks.DEEPSLATE_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.DEEPSLATE_PURRIUM_ORE, Items.COAL_ORE));
+        addDrop(ModBlocks.NETHER_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.NETHER_PURRIUM_ORE, Items.COAL_ORE));
+        addDrop(ModBlocks.END_PURRIUM_ORE, copperLikeOreDrops(ModBlocks.END_PURRIUM_ORE, Items.COAL_ORE));
     }
 
     public LootTable.Builder copperLikeOreDrops(Block drop, Item item) {

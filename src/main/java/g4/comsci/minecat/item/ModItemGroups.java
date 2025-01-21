@@ -16,7 +16,6 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModItems.CATFOOD)).entries((displayContext, entries) -> {
                         entries.add(ModItems.CATFOOD);
                         entries.add(ModItems.CAT_TEASER);
-                        entries.add(ModItems.CATFUEL);
                         entries.add(ModItems.CAT_LOCATOR);
 
                         entries.add(ModItems.PURRIUM);
@@ -30,11 +29,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_PURRIUM_ORE);
                         entries.add(ModBlocks.NETHER_PURRIUM_ORE);
                         entries.add(ModBlocks.END_PURRIUM_ORE);
-                        entries.add(ModItems.CROISSANTS);
-                        entries.add(ModItems.MASHED_POTATOES);
-                        entries.add(ModItems.Green_Tea);
-                        entries.add(ModItems.CAT_JELLY);
-                        entries.add(ModItems.CAT_SOUP);
+
                         entries.add(ModItems.SPHYNX_SPAWN_EGG);
                         entries.add(ModItems.KORATCAT_SPAWN_EGG);
                         entries.add(ModItems.PERSIAN_SPAWN_EGG);
