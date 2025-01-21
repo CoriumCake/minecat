@@ -16,10 +16,10 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SphynxCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f)).build());
 
-    public static final EntityType<KoratCatEntity> CAT2 = Registry.register(
+    public static final EntityType<PersianCatEntity> CAT2 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat2"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, KoratCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, PersianCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );
@@ -48,10 +48,10 @@ public class ModEntities {
                     .build()
     );
 
-    public static final EntityType<BengalCatEntity> CAT6 = Registry.register(
+    public static final EntityType<PersianCatEntity> CAT6 = Registry.register(
             Registries.ENTITY_TYPE,
             new Identifier(MineCat.MOD_ID, "cat6"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, BengalCatEntity::new)
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, PersianCatEntity::new)
                     .dimensions(EntityDimensions.fixed(1f, 1f))
                     .build()
     );

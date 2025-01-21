@@ -34,7 +34,6 @@ public class CatWoodcuttingBehavior {
         World world = cat.getWorld();
         long currentTime = world.getTime();
 
-        // Reset attempts if we've found a new target or successfully chopped a tree
         if (targetBlock == null) {
             attempts = 0;
         }

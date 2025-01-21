@@ -58,10 +58,9 @@ public class CatLocatorItem extends Item {
 
         @Override
         protected void init() {
-            int centerX = this.width / 2; // Center of the screen horizontally
-            int centerY = this.height / 2; // Center of the screen vertically
+            int centerX = this.width / 2;
+            int centerY = this.height / 2;
 
-            // Load owned cats
             loadOwnedCats();
 
             // Search TextField

@@ -1,6 +1,6 @@
 package g4.comsci.minecat.item.Interaction;
 
-import g4.comsci.minecat.entity.custom.KoratCatEntity;
+import g4.comsci.minecat.entity.custom.PersianCatEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
@@ -20,7 +20,7 @@ public class CatInteractionPickaxe extends PickaxeItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (player.isSneaking()) {
             // Adjust search to look for a compatible entity class
-            world.getEntitiesByClass(KoratCatEntity.class, player.getBoundingBox().expand(5), entity -> true)
+            world.getEntitiesByClass(PersianCatEntity.class, player.getBoundingBox().expand(5), entity -> true)
                     .forEach(customCat -> {
                         customCat.toggleMining(); // Directly use the entity since it's already KoratCatEntity
                         String message = customCat.isMining()

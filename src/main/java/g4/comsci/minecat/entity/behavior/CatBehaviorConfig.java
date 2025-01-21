@@ -11,7 +11,6 @@ public class CatBehaviorConfig {
     private static final int DETECTION_RADIUS = 20;
 
     public CatBehaviorConfig() {
-        // Initialize default behaviors
         enabledBehaviors.put("mining", false);
         enabledBehaviors.put("woodcutting", false);
     }
