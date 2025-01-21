@@ -22,19 +22,21 @@ public class ModPlacedFeatures {
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
 
+        // Regular Purrium Ore - Rare in upper layers
         register(context, PURRIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.PURRIUM_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(10,
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));
+                ModOrePlacement.modifiersWithCount(5, // 1 in 5 chunks will have a vein
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-16), YOffset.fixed(32))));
+
+        // Deepslate Purrium Ore - Very rare in deep layers
         register(context, DEEPSLATE_PURRIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.DEEPSLATE_PURRIUM_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8, // Veins per Chunk
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));
+                ModOrePlacement.modifiersWithRarity(6, // 1 in 6 chunks will have a vein
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-16))));
+
+        // Nether Purrium Ore - Extremely rare
         register(context, NETHER_PURRIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_PURRIUM_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(8, // Veins per Chunk
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));
-
-
+                ModOrePlacement.modifiersWithRarity(7, // 1 in 7 chunks will have a vein
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(64))));
     }
-
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(MineCat.MOD_ID, name));
