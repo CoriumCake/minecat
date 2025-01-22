@@ -1,43 +1,62 @@
-# gradle
-
+# Gradle
 .gradle/
 build/
 out/
 classes/
 
-# eclipse
-
+# Eclipse
 *.launch
+bin/
+.settings/
+.metadata/
+.classpath
+.project
 
-# idea
-
+# IntelliJ IDEA
 .idea/
 *.iml
 *.ipr
 *.iws
 
-# vscode
-
+# VSCode
 .settings/
 .vscode/
 bin/
-.classpath
-.project
 
-# macos
-
+# macOS
 *.DS_Store
+.AppleDouble
+.LSOverride
 
-# fabric
-
+# Fabric
 run/
+.fabric/
+logs/
 
-# java
-
+# Java
 hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
 
+# Generated Sources
 src/main/generated/
 /src/main/generated/.cache/
+
+# Mod Development
+*.log
+crash-reports/
+debug.log
+mods/
+saves/
+screenshots/
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+config/
+options.txt
+usercache.json
+usernamecache.json
+
+# Local Development
+local.properties
+.env
