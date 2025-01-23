@@ -113,6 +113,6 @@ For issues and suggestions:
 - Open an issue on GitHub
 - Contact the development team through the project's GitHub page
 
-[![Support on Ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=3)](https://ko-fi.com/coriumcake)
+[![Support on Ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=3 =200x)](https://ko-fi.com/coriumcake)
 
 Made with ❤️ by SUT Computer Science students
