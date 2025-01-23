@@ -4,7 +4,7 @@ A Minecraft mod that makes cats useful! This mod adds various breeds of cats wit
 
 ## Description
 
-MineCat transforms the vanilla Minecraft cats into helpful companions that can assist you with various tasks such as mining and woodcutting. Each cat breed has its own unique characteristics and preferred biomes.
+MineCat turns new cats into useful friends who can help you with a variety of jobs, such woodcutting and mining. Every breed of cat has distinct traits and preferred biomes of its own.
 
 ## Requirements
 
