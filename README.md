@@ -1,3 +1,5 @@
+[![Support on Ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=3)](https://ko-fi.com/coriumcake)
+
 # MineCat Mod
 
 A Minecraft mod that makes cats useful! This mod adds various breeds of cats with unique abilities and interactions, making your feline friends more than just pets.
@@ -113,6 +115,6 @@ For issues and suggestions:
 - Open an issue on GitHub
 - Contact the development team through the project's GitHub page
 
----
+[![Support on Ko-fi](https://storage.ko-fi.com/cdn/kofi2.png?v=3)](https://ko-fi.com/coriumcake)
 
 Made with ❤️ by SUT Computer Science students
