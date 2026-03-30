@@ -1,0 +1,9 @@
+﻿
+> Configure project :
+Fabric Loom: 1.8.13
+
+> Task :clean
+> Task :processResources
+
+BUILD SUCCESSFUL in 1s
+2 actionable tasks: 2 executed

@@ -1,14 +1,14 @@
 package g4.comsci.minecat.entity.client.renderer;
 
 import g4.comsci.minecat.MineCat;
-import g4.comsci.minecat.entity.custom.PersianCatEntity;
+import g4.comsci.minecat.entity.custom.BengalCatEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.CatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.util.Identifier;
 
-public class BengalCatRenderer extends MobEntityRenderer<PersianCatEntity, CatEntityModel<PersianCatEntity>> {
+public class BengalCatRenderer extends MobEntityRenderer<BengalCatEntity, CatEntityModel<BengalCatEntity>> {
     private static final Identifier TEXTURE = new Identifier(MineCat.MOD_ID, "textures/entity/cat6.png");
 
     public BengalCatRenderer(EntityRendererFactory.Context context) {
@@ -16,7 +16,7 @@ public class BengalCatRenderer extends MobEntityRenderer<PersianCatEntity, CatEn
     }
 
     @Override
-    public Identifier getTexture(PersianCatEntity catEntity) {
+    public Identifier getTexture(BengalCatEntity catEntity) {
         return TEXTURE;
     }
 }

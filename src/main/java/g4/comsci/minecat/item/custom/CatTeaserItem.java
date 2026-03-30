@@ -1,6 +1,6 @@
 package g4.comsci.minecat.item.custom;
 
-import g4.comsci.minecat.entity.custom.SphynxCatEntity;
+import g4.comsci.minecat.entity.custom.AbstractCustomCat;
 import g4.comsci.minecat.sound.ModSounds;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -41,8 +41,9 @@ public class CatTeaserItem extends Item {
             );
 
             // Get all nearby custom and vanilla cats
-            List<SphynxCatEntity> customCats = world.getEntitiesByClass(SphynxCatEntity.class, box, cat -> true);
-            List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box, cat -> true);
+            List<AbstractCustomCat> customCats = world.getEntitiesByClass(AbstractCustomCat.class, box, cat -> true);
+            List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box,
+                    cat -> !(cat instanceof AbstractCustomCat));
 
             // Combine both lists
             List<Object> allCats = new ArrayList<>();
@@ -52,7 +53,7 @@ public class CatTeaserItem extends Item {
             for (Object cat : allCats) {
                 double dx, dy, dz;
 
-                if (cat instanceof SphynxCatEntity customCat) {
+                if (cat instanceof AbstractCustomCat customCat) {
                     dx = user.getX() - customCat.getX();
                     dz = user.getZ() - customCat.getZ();
                     dy = (user.getY() - customCat.getY()) + 0.5;
@@ -92,15 +93,16 @@ public class CatTeaserItem extends Item {
                 user.getX() + 10, user.getY() + 10, user.getZ() + 10
         );
 
-        List<SphynxCatEntity> customCats = world.getEntitiesByClass(SphynxCatEntity.class, box, cat -> true);
-        List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box, cat -> true);
+        List<AbstractCustomCat> customCats = world.getEntitiesByClass(AbstractCustomCat.class, box, cat -> true);
+        List<net.minecraft.entity.passive.CatEntity> vanillaCats = world.getEntitiesByClass(net.minecraft.entity.passive.CatEntity.class, box,
+                cat -> !(cat instanceof AbstractCustomCat));
 
         List<Object> allCats = new ArrayList<>();
         allCats.addAll(customCats);
         allCats.addAll(vanillaCats);
 
         for (Object cat : allCats) {
-            if (cat instanceof SphynxCatEntity customCat) {
+            if (cat instanceof AbstractCustomCat customCat) {
                 spawnParticles(world, customCat.getX(), customCat.getY(), customCat.getZ());
             } else if (cat instanceof net.minecraft.entity.passive.CatEntity vanillaCat) {
                 spawnParticles(world, vanillaCat.getX(), vanillaCat.getY(), vanillaCat.getZ());

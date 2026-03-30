@@ -1,0 +1,206 @@
+﻿Initialized native services in: C:\Users\sut12\.gradle\native
+Initialized jansi services in: C:\Users\sut12\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot, JAVA_VERSION=17.0.16, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=17.0.16+8, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=17.0.16+8, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Found daemon DaemonInfo{pid=22380, address=[1358f4ac-a595-462a-9e20-c9e0469475c8 port:50443, addresses:[/127.0.0.1]], state=Idle, lastBusy=1749512628603, context=DefaultDaemonContext[uid=2b3e8181-1fdc-484b-8c7d-1d1285090773,javaHome=C:\Program Files\Microsoft\jdk-17.0.14.7-hotspot,javaVersion=17,javaVendor=Microsoft,daemonRegistryDir=C:\Users\sut12\.gradle\daemon,pid=22380,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED,--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-Xmx2048m,-Dfile.encoding=windows-1252,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot (no JDK specified, using current Java home), daemonOpts=[--add-opens=java.base/java.util=ALL-UNNAMED, --add-opens=java.base/java.lang=ALL-UNNAMED, --add-opens=java.base/java.lang.invoke=ALL-UNNAMED, --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED, --add-opens=java.base/java.nio.charset=ALL-UNNAMED, --add-opens=java.base/java.net=ALL-UNNAMED, --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED, -Xmx1G, -Dfile.encoding=windows-1252, -Duser.country=US, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=2b3e8181-1fdc-484b-8c7d-1d1285090773,javaHome=C:\Program Files\Microsoft\jdk-17.0.14.7-hotspot,javaVersion=17,javaVendor=Microsoft,daemonRegistryDir=C:\Users\sut12\.gradle\daemon,pid=22380,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED,--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-Xmx2048m,-Dfile.encoding=windows-1252,-Duser.country=US,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 33628). The daemon log file: C:\Users\sut12\.gradle\daemon\8.10.2\daemon-33628.out.log
+Starting 3rd build in daemon [uptime: 2 mins 35.105 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 1 GiB]
+Using 16 worker leases.
+Now considering [L:\Coding\minecat] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'L:\Coding\minecat\settings.gradle'.
+Projects loaded. Root project using build file 'L:\Coding\minecat\build.gradle'.
+Included projects: [root project 'minecat']
+
+> Configure project :
+Evaluating root project 'minecat' using build file 'L:\Coding\minecat\build.gradle'.
+Transforming fabric-loom-1.8-SNAPSHOT.jar (net.fabricmc:fabric-loom:1.8-SNAPSHOT:20241126.112513-13) with InstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with InstrumentationAnalysisTransform
+Transforming gson-2.10.1.jar (com.google.code.gson:gson:2.10.1) with InstrumentationAnalysisTransform
+Transforming stitch-0.6.2.jar (net.fabricmc:stitch:0.6.2) with InstrumentationAnalysisTransform
+Transforming guava-33.0.0-jre.jar (com.google.guava:guava:33.0.0-jre) with InstrumentationAnalysisTransform
+Transforming tiny-remapper-0.10.4.jar (net.fabricmc:tiny-remapper:0.10.4) with InstrumentationAnalysisTransform
+Transforming asm-commons-9.7.1.jar (org.ow2.asm:asm-commons:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-util-9.7.1.jar (org.ow2.asm:asm-util:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-analysis-9.7.1.jar (org.ow2.asm:asm-analysis:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-tree-9.7.1.jar (org.ow2.asm:asm-tree:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-9.7.1.jar (org.ow2.asm:asm:9.7.1) with InstrumentationAnalysisTransform
+Transforming access-widener-2.1.0.jar (net.fabricmc:access-widener:2.1.0) with InstrumentationAnalysisTransform
+Transforming mapping-io-0.6.1.jar (net.fabricmc:mapping-io:0.6.1) with InstrumentationAnalysisTransform
+Transforming lorenz-tiny-4.0.2.jar (net.fabricmc:lorenz-tiny:4.0.2) with InstrumentationAnalysisTransform
+Transforming fabric-loom-native-0.2.0.jar (net.fabricmc:fabric-loom-native:0.2.0) with InstrumentationAnalysisTransform
+Transforming mercury-0.4.2.jar (net.fabricmc:mercury:0.4.2) with InstrumentationAnalysisTransform
+Transforming kotlinx-metadata-jvm-0.9.0.jar (org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0) with InstrumentationAnalysisTransform
+Transforming failureaccess-1.0.2.jar (com.google.guava:failureaccess:1.0.2) with InstrumentationAnalysisTransform
+Transforming listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava) with InstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with InstrumentationAnalysisTransform
+Transforming checker-qual-3.41.0.jar (org.checkerframework:checker-qual:3.41.0) with InstrumentationAnalysisTransform
+Transforming error_prone_annotations-2.23.0.jar (com.google.errorprone:error_prone_annotations:2.23.0) with InstrumentationAnalysisTransform
+Transforming tiny-mappings-parser-0.3.0+build.17.jar (net.fabricmc:tiny-mappings-parser:0.3.0+build.17) with InstrumentationAnalysisTransform
+Transforming at-0.1.0-rc1.jar (org.cadixdev:at:0.1.0-rc1) with InstrumentationAnalysisTransform
+Transforming lorenz-0.5.7.jar (org.cadixdev:lorenz:0.5.7) with InstrumentationAnalysisTransform
+Transforming bombe-0.3.4.jar (org.cadixdev:bombe:0.3.4) with InstrumentationAnalysisTransform
+Transforming fabric-loom-1.8-SNAPSHOT.jar (net.fabricmc:fabric-loom:1.8-SNAPSHOT:20241126.112513-13) with InstrumentationAnalysisTransform
+Transforming fabric-loom-1.8-SNAPSHOT.jar (net.fabricmc:fabric-loom:1.8-SNAPSHOT:20241126.112513-13) with MergeInstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with InstrumentationAnalysisTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with MergeInstrumentationAnalysisTransform
+Transforming gson-2.10.1.jar (com.google.code.gson:gson:2.10.1) with InstrumentationAnalysisTransform
+Transforming gson-2.10.1.jar (com.google.code.gson:gson:2.10.1) with MergeInstrumentationAnalysisTransform
+Transforming fabric-loom-1.8-SNAPSHOT.jar (net.fabricmc:fabric-loom:1.8-SNAPSHOT:20241126.112513-13) with ExternalDependencyInstrumentingArtifactTransform
+Transforming commons-io-2.15.1.jar (commons-io:commons-io:2.15.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming stitch-0.6.2.jar (net.fabricmc:stitch:0.6.2) with InstrumentationAnalysisTransform
+Transforming stitch-0.6.2.jar (net.fabricmc:stitch:0.6.2) with MergeInstrumentationAnalysisTransform
+Transforming gson-2.10.1.jar (com.google.code.gson:gson:2.10.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming guava-33.0.0-jre.jar (com.google.guava:guava:33.0.0-jre) with InstrumentationAnalysisTransform
+Transforming guava-33.0.0-jre.jar (com.google.guava:guava:33.0.0-jre) with MergeInstrumentationAnalysisTransform
+Transforming stitch-0.6.2.jar (net.fabricmc:stitch:0.6.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tiny-remapper-0.10.4.jar (net.fabricmc:tiny-remapper:0.10.4) with InstrumentationAnalysisTransform
+Transforming tiny-remapper-0.10.4.jar (net.fabricmc:tiny-remapper:0.10.4) with MergeInstrumentationAnalysisTransform
+Transforming guava-33.0.0-jre.jar (com.google.guava:guava:33.0.0-jre) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-commons-9.7.1.jar (org.ow2.asm:asm-commons:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-commons-9.7.1.jar (org.ow2.asm:asm-commons:9.7.1) with MergeInstrumentationAnalysisTransform
+Transforming tiny-remapper-0.10.4.jar (net.fabricmc:tiny-remapper:0.10.4) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-util-9.7.1.jar (org.ow2.asm:asm-util:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-util-9.7.1.jar (org.ow2.asm:asm-util:9.7.1) with MergeInstrumentationAnalysisTransform
+Transforming asm-commons-9.7.1.jar (org.ow2.asm:asm-commons:9.7.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-analysis-9.7.1.jar (org.ow2.asm:asm-analysis:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-analysis-9.7.1.jar (org.ow2.asm:asm-analysis:9.7.1) with MergeInstrumentationAnalysisTransform
+Transforming asm-util-9.7.1.jar (org.ow2.asm:asm-util:9.7.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-tree-9.7.1.jar (org.ow2.asm:asm-tree:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-tree-9.7.1.jar (org.ow2.asm:asm-tree:9.7.1) with MergeInstrumentationAnalysisTransform
+Transforming asm-analysis-9.7.1.jar (org.ow2.asm:asm-analysis:9.7.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming asm-9.7.1.jar (org.ow2.asm:asm:9.7.1) with InstrumentationAnalysisTransform
+Transforming asm-9.7.1.jar (org.ow2.asm:asm:9.7.1) with MergeInstrumentationAnalysisTransform
+Transforming asm-tree-9.7.1.jar (org.ow2.asm:asm-tree:9.7.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming access-widener-2.1.0.jar (net.fabricmc:access-widener:2.1.0) with InstrumentationAnalysisTransform
+Transforming access-widener-2.1.0.jar (net.fabricmc:access-widener:2.1.0) with MergeInstrumentationAnalysisTransform
+Transforming asm-9.7.1.jar (org.ow2.asm:asm:9.7.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming mapping-io-0.6.1.jar (net.fabricmc:mapping-io:0.6.1) with InstrumentationAnalysisTransform
+Transforming mapping-io-0.6.1.jar (net.fabricmc:mapping-io:0.6.1) with MergeInstrumentationAnalysisTransform
+Transforming access-widener-2.1.0.jar (net.fabricmc:access-widener:2.1.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming lorenz-tiny-4.0.2.jar (net.fabricmc:lorenz-tiny:4.0.2) with InstrumentationAnalysisTransform
+Transforming mapping-io-0.6.1.jar (net.fabricmc:mapping-io:0.6.1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming lorenz-tiny-4.0.2.jar (net.fabricmc:lorenz-tiny:4.0.2) with MergeInstrumentationAnalysisTransform
+Transforming fabric-loom-native-0.2.0.jar (net.fabricmc:fabric-loom-native:0.2.0) with InstrumentationAnalysisTransform
+Transforming fabric-loom-native-0.2.0.jar (net.fabricmc:fabric-loom-native:0.2.0) with MergeInstrumentationAnalysisTransform
+Transforming lorenz-tiny-4.0.2.jar (net.fabricmc:lorenz-tiny:4.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming mercury-0.4.2.jar (net.fabricmc:mercury:0.4.2) with InstrumentationAnalysisTransform
+Transforming mercury-0.4.2.jar (net.fabricmc:mercury:0.4.2) with MergeInstrumentationAnalysisTransform
+Transforming kotlinx-metadata-jvm-0.9.0.jar (org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0) with InstrumentationAnalysisTransform
+Transforming fabric-loom-native-0.2.0.jar (net.fabricmc:fabric-loom-native:0.2.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming kotlinx-metadata-jvm-0.9.0.jar (org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0) with MergeInstrumentationAnalysisTransform
+Transforming failureaccess-1.0.2.jar (com.google.guava:failureaccess:1.0.2) with InstrumentationAnalysisTransform
+Transforming mercury-0.4.2.jar (net.fabricmc:mercury:0.4.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming failureaccess-1.0.2.jar (com.google.guava:failureaccess:1.0.2) with MergeInstrumentationAnalysisTransform
+Transforming listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava) with InstrumentationAnalysisTransform
+Transforming kotlinx-metadata-jvm-0.9.0.jar (org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava) with MergeInstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with InstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with MergeInstrumentationAnalysisTransform
+Transforming failureaccess-1.0.2.jar (com.google.guava:failureaccess:1.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming checker-qual-3.41.0.jar (org.checkerframework:checker-qual:3.41.0) with InstrumentationAnalysisTransform
+Transforming checker-qual-3.41.0.jar (org.checkerframework:checker-qual:3.41.0) with MergeInstrumentationAnalysisTransform
+Transforming listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava) with ExternalDependencyInstrumentingArtifactTransform
+Transforming error_prone_annotations-2.23.0.jar (com.google.errorprone:error_prone_annotations:2.23.0) with InstrumentationAnalysisTransform
+Transforming jsr305-3.0.2.jar (com.google.code.findbugs:jsr305:3.0.2) with ExternalDependencyInstrumentingArtifactTransform
+Transforming error_prone_annotations-2.23.0.jar (com.google.errorprone:error_prone_annotations:2.23.0) with MergeInstrumentationAnalysisTransform
+Transforming checker-qual-3.41.0.jar (org.checkerframework:checker-qual:3.41.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming tiny-mappings-parser-0.3.0+build.17.jar (net.fabricmc:tiny-mappings-parser:0.3.0+build.17) with InstrumentationAnalysisTransform
+Transforming tiny-mappings-parser-0.3.0+build.17.jar (net.fabricmc:tiny-mappings-parser:0.3.0+build.17) with MergeInstrumentationAnalysisTransform
+Transforming error_prone_annotations-2.23.0.jar (com.google.errorprone:error_prone_annotations:2.23.0) with ExternalDependencyInstrumentingArtifactTransform
+Transforming at-0.1.0-rc1.jar (org.cadixdev:at:0.1.0-rc1) with InstrumentationAnalysisTransform
+Transforming at-0.1.0-rc1.jar (org.cadixdev:at:0.1.0-rc1) with MergeInstrumentationAnalysisTransform
+Transforming tiny-mappings-parser-0.3.0+build.17.jar (net.fabricmc:tiny-mappings-parser:0.3.0+build.17) with ExternalDependencyInstrumentingArtifactTransform
+Transforming lorenz-0.5.7.jar (org.cadixdev:lorenz:0.5.7) with InstrumentationAnalysisTransform
+Transforming lorenz-0.5.7.jar (org.cadixdev:lorenz:0.5.7) with MergeInstrumentationAnalysisTransform
+Transforming bombe-0.3.4.jar (org.cadixdev:bombe:0.3.4) with InstrumentationAnalysisTransform
+Transforming at-0.1.0-rc1.jar (org.cadixdev:at:0.1.0-rc1) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bombe-0.3.4.jar (org.cadixdev:bombe:0.3.4) with MergeInstrumentationAnalysisTransform
+Transforming lorenz-0.5.7.jar (org.cadixdev:lorenz:0.5.7) with ExternalDependencyInstrumentingArtifactTransform
+Transforming bombe-0.3.4.jar (org.cadixdev:bombe:0.3.4) with ExternalDependencyInstrumentingArtifactTransform
+Fabric Loom: 1.8.13
+(kotlinx.metadata.jvm.KotlinClassMetadata) with version (0.9.0-1.9.21-40) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-metadata-jvm/0.9.0/123e86fd82d3a49afd0a41df1288a40c969f11b2/kotlinx-metadata-jvm-0.9.0.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.7.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.7.1/f0ed132a49244b042cd0e15702ab9f2ce3cc8436/asm-9.7.1.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.7.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.7.1/f97a3b319f0ed6a8cd944dc79060d3912a28985f/asm-analysis-9.7.1.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.7.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.7.1/406c6a2225cfe1819f102a161e54cc16a5c24f75/asm-commons-9.7.1.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.7.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.7.1/3a53139787663b139de76b627fca0084ab60d32c/asm-tree-9.7.1.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.7.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.7.1/9e23359b598ec6b74b23e53110dd5c577adf2243/asm-util-9.7.1.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar)
+(com.google.common.base.Preconditions) with version (null) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/33.0.0-jre/161ba27964a62f241533807a46b8711b13c1d94b/guava-33.0.0-jre.jar)
+(org.apache.commons.io.FileUtils) with version (2.15.1) was loaded from (/C:/Users/sut12/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar)
+:setting up loom dependencies
+Applying installer data from C:\Users\sut12\.gradle\caches\modules-2\files-2.1\net.fabricmc\fabric-loader\0.16.9\7eaa23079ac1569963e488054db124c7eb984f05\fabric-loader-0.16.9.jar
+Found another installer JSON in (C:\Users\sut12\.gradle\caches\modules-2\files-2.1\net.fabricmc\fabric-loader\0.16.9\7eaa23079ac1569963e488054db124c7eb984f05\fabric-loader-0.16.9.jar), ignoring
+Could not find refmap definition, will be using default name: minecat-refmap.json
+Configuring compiler arguments for Java
+Adding mixin to classpath of AP config: annotationProcessor
+Adding mixin to classpath of AP config: testAnnotationProcessor
+Could not find refmap definition, will be using default name: minecat-refmap.json
+All projects evaluated.
+Task name matched 'processResources'
+Selected primary task 'processResources' from project :
+Tasks to be executed: [task ':processResources']
+Tasks that were excluded: []
+Resolve mutations for :processResources (Thread[Execution worker,5,main]) started.
+:processResources (Thread[Execution worker,5,main]) started.
+
+> Task :processResources FAILED
+Caching disabled for task ':processResources' because:
+  Build cache is disabled
+  Not worth caching
+Task ':processResources' is not up-to-date because:
+  Task has failed previously.
+.\gradlew.bat : 
+At line:1 char:1
++ .\gradlew.bat 
+processResources --info 
+2>&1 | Out-File -FilePath 
+gradl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (:  
+  String) [], RemoteExc   
+ eption
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+FAILURE: Build failed 
+with an exception.
+
+* What went wrong:
+Execution failed for task 
+':processResources'.
+> Entry .cache/000300d75d8
+750c8bad138ad0674d5a35351f
+c07 is a duplicate but no 
+duplicate handling 
+strategy has been set. 
+Please refer to https://do
+cs.gradle.org/8.10.2/dsl/o
+rg.gradle.api.tasks.Copy.h
+tml#org.gradle.api.tasks.C
+opy:duplicatesStrategy 
+for details.
+
+* Try:
+> Run with --stacktrace 
+option to get the stack 
+trace.
+> Run with --debug option 
+to get more log output.
+> Run with --scan to get 
+full insights.
+> Get more help at 
+https://help.gradle.org.
+
+BUILD FAILED in 1s
+1 actionable task: 1 executed
+Watched directory hierarchies: [L:\Coding\minecat]

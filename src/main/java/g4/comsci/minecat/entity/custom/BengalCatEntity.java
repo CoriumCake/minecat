@@ -5,7 +5,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.world.World;
 
 public class BengalCatEntity extends AbstractCustomCat {
-    public BengalCatEntity(EntityType<? extends PersianCatEntity> entityType, World world) {
+    public BengalCatEntity(EntityType<? extends BengalCatEntity> entityType, World world) {
         super(entityType, world);
     }
 

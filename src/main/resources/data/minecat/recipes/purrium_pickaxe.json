@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "P": {
+      "item": "minecat:purrium"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "PPP",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "item": "minecat:purrium_pickaxe"
+  },
+  "show_notification": true
+}

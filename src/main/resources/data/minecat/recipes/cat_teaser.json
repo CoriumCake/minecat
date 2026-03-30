@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:cod"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "  S",
+    " ST",
+    "S F"
+  ],
+  "result": {
+    "item": "minecat:cat_teaser"
+  },
+  "show_notification": true
+}
